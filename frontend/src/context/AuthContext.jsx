@@ -2,6 +2,9 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 
 const AuthContext = createContext(null)
+const API = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+})
 
 export function AuthProvider({ children }) {
   const [user, setUser]           = useState(null)
@@ -28,63 +31,47 @@ export function AuthProvider({ children }) {
     setLoading(false)
   }, [])
 
-const login = async (email, password) => {
-  try {
-    const res = await axios.post('/api/auth/login', {
-      email,
-      password,
-    })
-
-    const userData = res.data.user
-
-    setUser(userData)
-    localStorage.setItem('sylex_user', JSON.stringify(userData))
-
-    if (res.data.token) {
-      localStorage.setItem('sylex_token', res.data.token)
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
-    }
-
-    const storedAvatar = localStorage.getItem(`sylex_avatar_${userData.id}`)
-    setAvatarState(storedAvatar || null)
-
-    return { success: true }
-  } catch (err) {
-    return {
-      success: false,
-      error: err.response?.data?.error || 'Login failed',
+  const login = async (email, password) => {
+    try {
+      const res = await API.post('/api/auth/login', { email, password })
+      const userData = res.data.user
+      setUser(userData)
+      localStorage.setItem('sylex_user', JSON.stringify(userData))
+      if (res.data.token) {
+        localStorage.setItem('sylex_token', res.data.token)
+        API.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+      }
+      const storedAvatar = localStorage.getItem(`sylex_avatar_${userData.id}`)
+      setAvatarState(storedAvatar || null)
+      return { success: true }
+    } catch (err) {
+  return {
+        success: false,
+        error: err.response?.data?.error || "Login failed"
+      }
     }
   }
-}
 
-const signup = async (name, email, password) => {
-  try {
-    const res = await axios.post('/api/auth/signup', {
-      name,
-      email,
-      password,
-    })
-
-    const userData = res.data.user
-
-    setUser(userData)
-    localStorage.setItem('sylex_user', JSON.stringify(userData))
-
-    if (res.data.token) {
-      localStorage.setItem('sylex_token', res.data.token)
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
-    }
-
-    setAvatarState(null)
-
-    return { success: true }
-  } catch (err) {
-    return {
-      success: false,
-      error: err.response?.data?.error || 'Signup failed',
-    }
+  const signup = async (name, email, password) => {
+    try {
+      const res = await API.post('/api/auth/signup', { name, email, password })
+      const userData = res.data.user
+      setUser(userData)
+      localStorage.setItem('sylex_user', JSON.stringify(userData))
+      if (res.data.token) {
+        localStorage.setItem('sylex_token', res.data.token)
+        API.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+      }
+      setAvatarState(null)
+      return { success: true }
+    } catch (err) {
+  return {
+    success: false,
+    error: err.response?.data?.error || "Signup failed"
   }
 }
+  }
+
   const logout = () => {
     setUser(null)
     setFavorites({})
@@ -92,7 +79,7 @@ const signup = async (name, email, password) => {
     localStorage.removeItem('sylex_user')
     localStorage.removeItem('sylex_token')
     localStorage.removeItem('sylex_favorites')
-    delete axios.defaults.headers.common['Authorization']
+    delete API.defaults.headers.common['Authorization']
   }
 
   const toggleFavorite = (item, type) => {
