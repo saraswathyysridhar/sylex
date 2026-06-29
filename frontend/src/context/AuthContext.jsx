@@ -41,11 +41,11 @@ export function AuthProvider({ children }) {
       const storedAvatar = localStorage.getItem(`sylex_avatar_${userData.id}`)
       setAvatarState(storedAvatar || null)
       return { success: true }
-    } catch {
-      const mockUser = { id: Date.now(), name: email.split('@')[0], email }
-      setUser(mockUser)
-      localStorage.setItem('sylex_user', JSON.stringify(mockUser))
-      return { success: true }
+    } catch (err) {
+  return {
+        success: false,
+        error: err.response?.data?.error || "Login failed"
+      }
     }
   }
 
@@ -61,12 +61,12 @@ export function AuthProvider({ children }) {
       }
       setAvatarState(null)
       return { success: true }
-    } catch {
-      const mockUser = { id: Date.now(), name, email }
-      setUser(mockUser)
-      localStorage.setItem('sylex_user', JSON.stringify(mockUser))
-      return { success: true }
-    }
+    } catch (err) {
+  return {
+    success: false,
+    error: err.response?.data?.error || "Signup failed"
+  }
+}
   }
 
   const logout = () => {
