@@ -28,47 +28,63 @@ export function AuthProvider({ children }) {
     setLoading(false)
   }, [])
 
-  const login = async (email, password) => {
-    try {
-      const res = await axios.post('/api/auth/login', { email, password })
-      const userData = res.data.user
-      setUser(userData)
-      localStorage.setItem('sylex_user', JSON.stringify(userData))
-      if (res.data.token) {
-        localStorage.setItem('sylex_token', res.data.token)
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
-      }
-      const storedAvatar = localStorage.getItem(`sylex_avatar_${userData.id}`)
-      setAvatarState(storedAvatar || null)
-      return { success: true }
-    } catch (err) {
-  return {
-        success: false,
-        error: err.response?.data?.error || "Login failed"
-      }
+const login = async (email, password) => {
+  try {
+    const res = await axios.post('/api/auth/login', {
+      email,
+      password,
+    })
+
+    const userData = res.data.user
+
+    setUser(userData)
+    localStorage.setItem('sylex_user', JSON.stringify(userData))
+
+    if (res.data.token) {
+      localStorage.setItem('sylex_token', res.data.token)
+      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+    }
+
+    const storedAvatar = localStorage.getItem(`sylex_avatar_${userData.id}`)
+    setAvatarState(storedAvatar || null)
+
+    return { success: true }
+  } catch (err) {
+    return {
+      success: false,
+      error: err.response?.data?.error || 'Login failed',
     }
   }
+}
 
-  const signup = async (name, email, password) => {
-    try {
-      const res = await axios.post('/api/auth/signup', { name, email, password })
-      const userData = res.data.user
-      setUser(userData)
-      localStorage.setItem('sylex_user', JSON.stringify(userData))
-      if (res.data.token) {
-        localStorage.setItem('sylex_token', res.data.token)
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
-      }
-      setAvatarState(null)
-      return { success: true }
-    } catch (err) {
-  return {
-    success: false,
-    error: err.response?.data?.error || "Signup failed"
+const signup = async (name, email, password) => {
+  try {
+    const res = await axios.post('/api/auth/signup', {
+      name,
+      email,
+      password,
+    })
+
+    const userData = res.data.user
+
+    setUser(userData)
+    localStorage.setItem('sylex_user', JSON.stringify(userData))
+
+    if (res.data.token) {
+      localStorage.setItem('sylex_token', res.data.token)
+      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+    }
+
+    setAvatarState(null)
+
+    return { success: true }
+  } catch (err) {
+    return {
+      success: false,
+      error: err.response?.data?.error || 'Signup failed',
+    }
   }
 }
-  }
-
   const logout = () => {
     setUser(null)
     setFavorites({})
