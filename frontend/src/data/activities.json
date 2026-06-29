@@ -1,0 +1,322 @@
+[
+  {
+    "id": "a1", "title": "Sunrise Yoga", "name": "Sunrise Yoga",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80",
+    "tags": ["Wellness", "Solo", "Low Energy"], "genres": ["Wellness", "Indoor"],
+    "duration": "30 min", "runtime": "30 min", "mood": "Relaxed",
+    "description": "Start your morning with a gentle yoga flow to set a calm, mindful tone for the day.", "type": "activity"
+  },
+  {
+    "id": "a2", "title": "Journaling Session", "name": "Journaling Session",
+    "image": "https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80",
+    "tags": ["Solo", "Creative", "Indoor"], "genres": ["Creative", "Solo"],
+    "duration": "20 min", "runtime": "20 min", "mood": "Reflective",
+    "description": "Write freely in your journal — thoughts, dreams, gratitude, or fiction.", "type": "activity"
+  },
+  {
+    "id": "a3", "title": "Board Game Night", "name": "Board Game Night",
+    "image": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=400&q=80",
+    "tags": ["Group", "Fun", "Indoor"], "genres": ["Social", "Fun"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Energetic",
+    "description": "Gather friends or family for a classic board game battle — Catan, Uno, or Monopoly.", "type": "activity"
+  },
+  {
+    "id": "a4", "title": "Nature Hike", "name": "Nature Hike",
+    "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&q=80",
+    "tags": ["Outdoor", "Active", "Nature"], "genres": ["Outdoor", "Active"],
+    "duration": "3 hrs", "runtime": "3 hrs", "mood": "Adventurous",
+    "description": "Lace up your boots and explore a nearby trail. Breathe fresh air, clear your mind.", "type": "activity"
+  },
+  {
+    "id": "a5", "title": "Sketch & Draw", "name": "Sketch & Draw",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80",
+    "tags": ["Solo", "Creative", "Indoor"], "genres": ["Creative", "Art"],
+    "duration": "1 hr", "runtime": "1 hr", "mood": "Relaxed",
+    "description": "Grab pencil and paper and let your imagination run wild with sketching.", "type": "activity"
+  },
+  {
+    "id": "a6", "title": "Cooking Adventure", "name": "Cooking Adventure",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80",
+    "tags": ["Solo", "Family", "Creative"], "genres": ["Culinary", "Creative"],
+    "duration": "1.5 hrs", "runtime": "1.5 hrs", "mood": "Cozy",
+    "description": "Try a new recipe from a different cuisine. The kitchen is your lab.", "type": "activity"
+  },
+  {
+    "id": "a7", "title": "Stargazing Night", "name": "Stargazing Night",
+    "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&q=80",
+    "tags": ["Outdoor", "Romantic", "Night"], "genres": ["Outdoor", "Romantic"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Romantic",
+    "description": "Head outside after dark, lay a blanket, and identify constellations together.", "type": "activity"
+  },
+  {
+    "id": "a8", "title": "Photography Walk", "name": "Photography Walk",
+    "image": "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?w=400&q=80",
+    "tags": ["Solo", "Creative", "Outdoor"], "genres": ["Art", "Outdoor"],
+    "duration": "1.5 hrs", "runtime": "1.5 hrs", "mood": "Exploratory",
+    "description": "Take your camera or phone and find beauty in everyday scenes around you.", "type": "activity"
+  },
+  {
+    "id": "a9", "title": "Meditation & Breathwork", "name": "Meditation & Breathwork",
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80",
+    "tags": ["Solo", "Wellness", "Low Energy"], "genres": ["Wellness", "Mindfulness"],
+    "duration": "15 min", "runtime": "15 min", "mood": "Calm",
+    "description": "Find a quiet spot and practice 10 minutes of guided breathwork or silent meditation.", "type": "activity"
+  },
+  {
+    "id": "a10", "title": "Bike Ride", "name": "Bike Ride",
+    "image": "https://images.unsplash.com/photo-1558979158-65a1eaa08691?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1558979158-65a1eaa08691?w=400&q=80",
+    "tags": ["Outdoor", "Active", "Friends"], "genres": ["Outdoor", "Active"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Energetic",
+    "description": "Hop on your bike and explore new routes in your city or on a countryside trail.", "type": "activity"
+  },
+  {
+    "id": "a11", "title": "DIY Craft Project", "name": "DIY Craft Project",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
+    "tags": ["Solo", "Creative", "Indoor"], "genres": ["Creative", "DIY"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Focused",
+    "description": "Pick a craft — macramé, painting, pottery, origami — and make something unique.", "type": "activity"
+  },
+  {
+    "id": "a12", "title": "Picnic in the Park", "name": "Picnic in the Park",
+    "image": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&q=80",
+    "tags": ["Friends", "Family", "Outdoor"], "genres": ["Social", "Outdoor"],
+    "duration": "3 hrs", "runtime": "3 hrs", "mood": "Cheerful",
+    "description": "Pack sandwiches, fruit, and a blanket and enjoy a lazy afternoon outdoors.", "type": "activity"
+  },
+  {
+    "id": "a13", "title": "Morning Run", "name": "Morning Run",
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80",
+    "tags": ["Solo", "Active", "Outdoor", "High Energy"], "genres": ["Fitness", "Outdoor"],
+    "duration": "45 min", "runtime": "45 min", "mood": "Energetic",
+    "description": "Start the day with a run — even 20 minutes sets a completely different tone for everything that follows.", "type": "activity"
+  },
+  {
+    "id": "a14", "title": "Book Club Meeting", "name": "Book Club Meeting",
+    "image": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&q=80",
+    "tags": ["Group", "Social", "Indoor"], "genres": ["Social", "Literary"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Thoughtful",
+    "description": "Pick a book, invite a few friends, and have real conversations about what you read.", "type": "activity"
+  },
+  {
+    "id": "a15", "title": "Pottery Workshop", "name": "Pottery Workshop",
+    "image": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&q=80",
+    "tags": ["Creative", "Indoor", "Solo", "Group"], "genres": ["Creative", "Art"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Focused",
+    "description": "Get your hands in clay. There's something meditative about shaping something from nothing.", "type": "activity"
+  },
+  {
+    "id": "a16", "title": "Language Learning Session", "name": "Language Learning Session",
+    "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80",
+    "tags": ["Solo", "Learning", "Indoor"], "genres": ["Educational", "Solo"],
+    "duration": "1 hr", "runtime": "1 hr", "mood": "Focused",
+    "description": "Pick up a new language — even 30 minutes a day on Duolingo or with a tutor creates real progress.", "type": "activity"
+  },
+  {
+    "id": "a17", "title": "Open Water Swim", "name": "Open Water Swim",
+    "image": "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&q=80",
+    "tags": ["Outdoor", "Active", "Solo", "High Energy"], "genres": ["Fitness", "Outdoor"],
+    "duration": "1 hr", "runtime": "1 hr", "mood": "Adventurous",
+    "description": "Find a lake, river, or beach and swim outdoors. Cold water, open sky — truly resetting.", "type": "activity"
+  },
+  {
+    "id": "a18", "title": "Live Concert or Gig", "name": "Live Concert or Gig",
+    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80",
+    "tags": ["Group", "Evening", "Social"], "genres": ["Music", "Social"],
+    "duration": "3 hrs", "runtime": "3 hrs", "mood": "Excited",
+    "description": "There's nothing quite like live music. Find a local gig, a festival, or a headline show.", "type": "activity"
+  },
+  {
+    "id": "a19", "title": "Museum or Gallery Visit", "name": "Museum or Gallery Visit",
+    "image": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?w=400&q=80",
+    "tags": ["Solo", "Group", "Cultural", "Indoor"], "genres": ["Cultural", "Educational"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Curious",
+    "description": "Wander through a museum or art gallery. Let something unexpected catch your eye and stay with it.", "type": "activity"
+  },
+  {
+    "id": "a20", "title": "Rock Climbing", "name": "Rock Climbing",
+    "image": "https://images.unsplash.com/photo-1522163182402-834f871fd851?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1522163182402-834f871fd851?w=400&q=80",
+    "tags": ["Active", "Group", "High Energy"], "genres": ["Fitness", "Adventure"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Energetic",
+    "description": "Indoor bouldering or outdoor climbing — it's a full-body problem-solving workout.", "type": "activity"
+  },
+  {
+    "id": "a21", "title": "Home Spa Day", "name": "Home Spa Day",
+    "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=80",
+    "tags": ["Solo", "Wellness", "Indoor", "Low Energy"], "genres": ["Wellness", "Relaxation"],
+    "duration": "3 hrs", "runtime": "3 hrs", "mood": "Relaxed",
+    "description": "Draw a bath, apply a face mask, play soft music, and give yourself a proper reset.", "type": "activity"
+  },
+  {
+    "id": "a22", "title": "Gardening", "name": "Gardening",
+    "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80",
+    "tags": ["Outdoor", "Calm", "Solo", "Family"], "genres": ["Outdoor", "Mindfulness"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Peaceful",
+    "description": "Tend to plants, plant seeds, or redesign your garden. Soil therapy is real.", "type": "activity"
+  },
+  {
+    "id": "a23", "title": "Escape Room", "name": "Escape Room",
+    "image": "https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?w=400&q=80",
+    "tags": ["Group", "Fun", "Competitive", "Indoor"], "genres": ["Social", "Adventure"],
+    "duration": "1.5 hrs", "runtime": "1.5 hrs", "mood": "Excited",
+    "description": "Lock yourselves in a room and solve your way out. Great for teams of 2–6 people.", "type": "activity"
+  },
+  {
+    "id": "a24", "title": "Farmers Market Visit", "name": "Farmers Market Visit",
+    "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=400&q=80",
+    "tags": ["Outdoor", "Social", "Morning", "Group"], "genres": ["Social", "Outdoor"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Cheerful",
+    "description": "Walk through a local market, pick up fresh produce, try something new. The best Saturday morning ritual.", "type": "activity"
+  },
+  {
+    "id": "a25", "title": "Dance Class", "name": "Dance Class",
+    "image": "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=400&q=80",
+    "tags": ["Active", "Social", "Group", "High Energy"], "genres": ["Fitness", "Social"],
+    "duration": "1.5 hrs", "runtime": "1.5 hrs", "mood": "Energetic",
+    "description": "Salsa, hip hop, contemporary — pick a style and move. You'll leave smiling guaranteed.", "type": "activity"
+  },
+  {
+    "id": "a26", "title": "Midnight Drive", "name": "Midnight Drive",
+    "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&q=80",
+    "tags": ["Solo", "Partner", "Night", "Adventure"], "genres": ["Adventure", "Romantic"],
+    "duration": "1 hr", "runtime": "1 hr", "mood": "Contemplative",
+    "description": "Drive with no destination. Good music, open windows, and the city at night. Therapeutic.", "type": "activity"
+  },
+  {
+    "id": "a27", "title": "Wine or Coffee Tasting", "name": "Wine or Coffee Tasting",
+    "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&q=80",
+    "tags": ["Social", "Group", "Indoor", "Evening"], "genres": ["Social", "Culinary"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Social",
+    "description": "Host or attend a structured tasting — wine flights, single-origin espressos, or craft beers. Surprisingly fun.", "type": "activity"
+  },
+  {
+    "id": "a28", "title": "Stand-Up Paddleboarding", "name": "Stand-Up Paddleboarding",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80",
+    "tags": ["Outdoor", "Active", "Solo", "Partner"], "genres": ["Fitness", "Water"],
+    "duration": "1.5 hrs", "runtime": "1.5 hrs", "mood": "Adventurous",
+    "description": "Rent a board and paddle across calm water. Surprisingly meditative and a great core workout.", "type": "activity"
+  },
+  {
+    "id": "a29", "title": "Write or Record a Song", "name": "Write or Record a Song",
+    "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80",
+    "tags": ["Solo", "Creative", "Indoor"], "genres": ["Creative", "Music"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Creative",
+    "description": "Write a song — it doesn't have to be good. Record a voice memo or a GarageBand demo. Just make something.", "type": "activity"
+  },
+  {
+    "id": "a30", "title": "Home Cinema Setup", "name": "Home Cinema Setup",
+    "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80",
+    "tags": ["Cozy", "Group", "Indoor", "Family"], "genres": ["Entertainment", "Social"],
+    "duration": "3 hrs", "runtime": "3 hrs", "mood": "Cozy",
+    "description": "Push the furniture back, dim the lights, make popcorn, and commit to the full cinema experience at home.", "type": "activity"
+  },
+  {
+    "id": "a31", "title": "Sunrise at a Viewpoint", "name": "Sunrise at a Viewpoint",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80",
+    "tags": ["Outdoor", "Solo", "Partner", "Morning"], "genres": ["Outdoor", "Mindfulness"],
+    "duration": "2 hrs", "runtime": "2 hrs", "mood": "Inspired",
+    "description": "Set an early alarm, drive to a high point, and watch the sun come up. Brings perspective immediately.", "type": "activity"
+  },
+  {
+    "id": "a32", "title": "Candle Making", "name": "Candle Making",
+    "image": "https://images.unsplash.com/photo-1608181831718-c9fcc8a0e5d4?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1608181831718-c9fcc8a0e5d4?w=400&q=80",
+    "tags": ["Creative", "Solo", "Group", "Indoor"], "genres": ["Creative", "DIY"],
+    "duration": "1.5 hrs", "runtime": "1.5 hrs", "mood": "Cozy",
+    "description": "Melt wax, choose scents, pour and set. You end up with something beautiful that smells amazing.", "type": "activity"
+  },
+  {
+    "id": "a33", "title": "Outdoor Bootcamp", "name": "Outdoor Bootcamp",
+    "image": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80",
+    "tags": ["Active", "Group", "Outdoor", "High Energy"], "genres": ["Fitness", "Outdoor"],
+    "duration": "1 hr", "runtime": "1 hr", "mood": "Energetic",
+    "description": "Find a park or open space and do 45 minutes of bodyweight intervals. No equipment needed.", "type": "activity"
+  },
+  {
+    "id": "a34", "title": "Karaoke Night", "name": "Karaoke Night",
+    "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80",
+    "tags": ["Group", "Fun", "Evening", "Social"], "genres": ["Social", "Music"],
+    "duration": "3 hrs", "runtime": "3 hrs", "mood": "Playful",
+    "description": "Sing badly and love it. Karaoke is chaos in the best way — grab your friends and go.", "type": "activity"
+  },
+  {
+    "id": "a35", "title": "Café Hopping", "name": "Café Hopping",
+    "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&q=80",
+    "tags": ["Solo", "Partner", "Outdoor", "Social"], "genres": ["Social", "Exploration"],
+    "duration": "3 hrs", "runtime": "3 hrs", "mood": "Relaxed",
+    "description": "Visit 3 different cafés in your city. Order something different at each. Bring a book or just observe.", "type": "activity"
+  },
+  {
+    "id": "a36", "title": "Archery or Ax Throwing", "name": "Archery or Ax Throwing",
+    "image": "https://images.unsplash.com/photo-1535294435445-d7249524ef2e?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1535294435445-d7249524ef2e?w=400&q=80",
+    "tags": ["Group", "Active", "Unique", "Fun"], "genres": ["Adventure", "Social"],
+    "duration": "1.5 hrs", "runtime": "1.5 hrs", "mood": "Excited",
+    "description": "Throw an axe at a wooden target. Sounds extreme, is actually very satisfying and weirdly zen.", "type": "activity"
+  },
+  {
+    "id": "a37", "title": "Volunteer Day", "name": "Volunteer Day",
+    "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&q=80",
+    "tags": ["Group", "Community", "Social"], "genres": ["Social", "Community"],
+    "duration": "4 hrs", "runtime": "4 hrs", "mood": "Purposeful",
+    "description": "Sign up to volunteer — food banks, beach cleanups, animal shelters. You'll feel good for days.", "type": "activity"
+  },
+  {
+    "id": "a38", "title": "Letter Writing Session", "name": "Letter Writing Session",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=80",
+    "tags": ["Solo", "Creative", "Indoor", "Reflective"], "genres": ["Creative", "Solo"],
+    "duration": "45 min", "runtime": "45 min", "mood": "Thoughtful",
+    "description": "Write a handwritten letter to someone you appreciate. No email — actual paper, actual stamp.", "type": "activity"
+  },
+  {
+    "id": "a39", "title": "Cooking for Strangers", "name": "Cooking for Strangers",
+    "image": "https://images.unsplash.com/photo-1590080874088-eec64895b423?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1590080874088-eec64895b423?w=400&q=80",
+    "tags": ["Social", "Creative", "Group", "Evening"], "genres": ["Social", "Culinary"],
+    "duration": "4 hrs", "runtime": "4 hrs", "mood": "Social",
+    "description": "Host a dinner party for people you don't know well. Strangers become friends over shared food.", "type": "activity"
+  },
+  {
+    "id": "a40", "title": "Cold Plunge or Ice Bath", "name": "Cold Plunge or Ice Bath",
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80",
+    "tags": ["Solo", "Wellness", "Active", "High Energy"], "genres": ["Wellness", "Fitness"],
+    "duration": "15 min", "runtime": "15 min", "mood": "Intense",
+    "description": "Fill a tub with cold water and ice. Step in. Everything resets. Harder than it sounds, worth more than you expect.", "type": "activity"
+  }
+]

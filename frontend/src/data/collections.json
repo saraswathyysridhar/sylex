@@ -1,0 +1,362 @@
+[
+  {
+    "id": "c1",
+    "title": "Rainy Day In",
+    "emoji": "🌧️",
+    "description": "Everything you need for a perfect day trapped indoors. Comfort guaranteed.",
+    "tags": ["Cozy", "Solo", "Rainy", "Indoor"],
+    "color": "from-blue-500 to-indigo-600",
+    "image": "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=800&q=80",
+    "items": [
+      { "type": "movie",    "title": "Amélie",             "emoji": "🎬" },
+      { "type": "recipe",   "title": "French Onion Soup",  "emoji": "🍲" },
+      { "type": "drink",    "title": "Hot Chocolate",       "emoji": "☕" },
+      { "type": "activity", "title": "Journaling Session",  "emoji": "📓" }
+    ]
+  },
+  {
+    "id": "c2",
+    "title": "Date Night",
+    "emoji": "🌹",
+    "description": "Curated picks to make your evening feel cinematic and unforgettable.",
+    "tags": ["Romantic", "Partner", "Evening", "Special"],
+    "color": "from-rose-500 to-pink-600",
+    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+    "items": [
+      { "type": "movie",    "title": "La La Land",        "emoji": "🎬" },
+      { "type": "recipe",   "title": "Pasta Carbonara",   "emoji": "🍷" },
+      { "type": "drink",    "title": "Espresso Martini",  "emoji": "🥂" },
+      { "type": "activity", "title": "Midnight Drive",    "emoji": "🚗" }
+    ]
+  },
+  {
+    "id": "c3",
+    "title": "Sunday Reset",
+    "emoji": "🌿",
+    "description": "A ritual for reclaiming your Sunday. Prep your mind and body for the week ahead.",
+    "tags": ["Wellness", "Solo", "Morning", "Routine"],
+    "color": "from-green-500 to-teal-500",
+    "image": "https://images.unsplash.com/photo-1495564870577-37973fe3e602?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Sunrise Yoga",       "emoji": "🧘" },
+      { "type": "recipe",   "title": "Avocado Toast",      "emoji": "🥑" },
+      { "type": "drink",    "title": "Matcha Latte",        "emoji": "🍵" },
+      { "type": "activity", "title": "Journaling Session",  "emoji": "📓" }
+    ]
+  },
+  {
+    "id": "c4",
+    "title": "Game Night",
+    "emoji": "🎮",
+    "description": "Level up your evening. Friends, snacks, and serious competition.",
+    "tags": ["Social", "Group", "Fun", "Evening"],
+    "color": "from-violet-500 to-purple-600",
+    "image": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&q=80",
+    "items": [
+      { "type": "game",     "title": "Jackbox Party Pack",  "emoji": "🎮" },
+      { "type": "recipe",   "title": "Loaded Nachos",       "emoji": "🫔" },
+      { "type": "drink",    "title": "Craft Beer",           "emoji": "🍺" },
+      { "type": "activity", "title": "Board Game Night",     "emoji": "♟️" }
+    ]
+  },
+  {
+    "id": "c5",
+    "title": "Creative Afternoon",
+    "emoji": "🎨",
+    "description": "For when you need to make something. Anything. Just start.",
+    "tags": ["Creative", "Solo", "Afternoon", "Inspiration"],
+    "color": "from-amber-400 to-orange-500",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Sketch & Draw",                "emoji": "✏️" },
+      { "type": "activity", "title": "Write or Record a Song",       "emoji": "🎙️" },
+      { "type": "drink",    "title": "Iced Latte",                   "emoji": "☕" },
+      { "type": "activity", "title": "DIY Craft Project",            "emoji": "🎨" }
+    ]
+  },
+  {
+    "id": "c6",
+    "title": "Weekend Adventure",
+    "emoji": "🌄",
+    "description": "Get off the couch. The outside world is calling. Answer it.",
+    "tags": ["Active", "Outdoor", "High Energy", "Friends"],
+    "color": "from-sky-500 to-cyan-500",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Nature Hike",         "emoji": "🥾" },
+      { "type": "recipe",   "title": "Grilled Chicken Salad","emoji": "🥗" },
+      { "type": "drink",    "title": "Watermelon Mint Cooler","emoji": "🍉" },
+      { "type": "activity", "title": "Photography Walk",    "emoji": "📷" }
+    ]
+  },
+  {
+    "id": "c7",
+    "title": "Sci-Fi Night",
+    "emoji": "🚀",
+    "description": "Stars, synthwave, and stories that make you question everything.",
+    "tags": ["Sci-Fi", "Evening", "Solo", "Partner"],
+    "color": "from-slate-700 to-blue-900",
+    "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&q=80",
+    "items": [
+      { "type": "movie",    "title": "Dune",                   "emoji": "🎬" },
+      { "type": "recipe",   "title": "Spiced Lentil Soup",     "emoji": "🍲" },
+      { "type": "drink",    "title": "Black Coffee",            "emoji": "☕" },
+      { "type": "activity", "title": "Stargazing Night",       "emoji": "⭐" }
+    ]
+  },
+  {
+    "id": "c8",
+    "title": "Morning Power Hour",
+    "emoji": "☀️",
+    "description": "Your non-negotiable morning stack. 60 minutes to own the day.",
+    "tags": ["Morning", "Routine", "Solo", "High Energy"],
+    "color": "from-yellow-400 to-orange-400",
+    "image": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Morning Run",                "emoji": "🏃" },
+      { "type": "activity", "title": "Meditation & Breathwork",    "emoji": "🧘" },
+      { "type": "recipe",   "title": "Protein Smoothie Bowl",      "emoji": "🥣" },
+      { "type": "drink",    "title": "Cold Brew Coffee",           "emoji": "☕" }
+    ]
+  },
+  {
+    "id": "c9",
+    "title": "Horror Night",
+    "emoji": "🎃",
+    "description": "Scare yourself. With snacks. In the dark. Good luck.",
+    "tags": ["Horror", "Group", "Evening", "Fun"],
+    "color": "from-red-900 to-gray-900",
+    "image": "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=800&q=80",
+    "items": [
+      { "type": "movie",    "title": "Get Out",              "emoji": "🎬" },
+      { "type": "recipe",   "title": "Spicy Chili",          "emoji": "🌶️" },
+      { "type": "drink",    "title": "Bloody Mary",           "emoji": "🍹" },
+      { "type": "activity", "title": "Home Cinema Setup",    "emoji": "🍿" }
+    ]
+  },
+  {
+    "id": "c10",
+    "title": "Wellness Weekend",
+    "emoji": "🌸",
+    "description": "Two days to restore every part of yourself. You've earned this.",
+    "tags": ["Wellness", "Solo", "Restorative", "Weekend"],
+    "color": "from-pink-400 to-rose-500",
+    "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Home Spa Day",          "emoji": "🛁" },
+      { "type": "activity", "title": "Sunrise Yoga",          "emoji": "🧘" },
+      { "type": "recipe",   "title": "Açaí Smoothie Bowl",    "emoji": "🫐" },
+      { "type": "drink",    "title": "Herbal Tea Ritual",     "emoji": "🍵" }
+    ]
+  },
+  {
+    "id": "c11",
+    "title": "Book Lover's Evening",
+    "emoji": "📚",
+    "description": "Good light, good tea, a great book. Let the hours disappear.",
+    "tags": ["Solo", "Quiet", "Evening", "Cozy"],
+    "color": "from-stone-500 to-amber-700",
+    "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
+    "items": [
+      { "type": "book",     "title": "The Midnight Library",  "emoji": "📖" },
+      { "type": "drink",    "title": "Chamomile Tea",          "emoji": "🍵" },
+      { "type": "activity", "title": "Journaling Session",    "emoji": "📓" },
+      { "type": "activity", "title": "Candle Making",         "emoji": "🕯️" }
+    ]
+  },
+  {
+    "id": "c12",
+    "title": "Friday Night Out",
+    "emoji": "🎉",
+    "description": "The week is over. Celebrate properly. You know you want to.",
+    "tags": ["Evening", "Group", "Fun", "Social"],
+    "color": "from-fuchsia-500 to-pink-600",
+    "image": "https://images.unsplash.com/photo-1574117457870-bafde3bce5f8?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Karaoke Night",         "emoji": "🎤" },
+      { "type": "drink",    "title": "Tequila Sour",          "emoji": "🍹" },
+      { "type": "activity", "title": "Dance Class",           "emoji": "💃" },
+      { "type": "recipe",   "title": "Late Night Tacos",      "emoji": "🌮" }
+    ]
+  },
+  {
+    "id": "c13",
+    "title": "Road Trip Prep",
+    "emoji": "🚗",
+    "description": "Pack the snacks, queue the playlist, map out the route. Let's go.",
+    "tags": ["Adventure", "Group", "Partner", "Outdoor"],
+    "color": "from-orange-500 to-red-500",
+    "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Midnight Drive",           "emoji": "🚗" },
+      { "type": "recipe",   "title": "Energy Bars",              "emoji": "🥜" },
+      { "type": "drink",    "title": "Thermos Black Coffee",     "emoji": "☕" },
+      { "type": "activity", "title": "Sunrise at a Viewpoint",  "emoji": "🌅" }
+    ]
+  },
+  {
+    "id": "c14",
+    "title": "Cultural Deep Dive",
+    "emoji": "🌍",
+    "description": "One country. One meal. One film. One evening of total immersion.",
+    "tags": ["Cultural", "Educational", "Solo", "Partner"],
+    "color": "from-emerald-600 to-teal-700",
+    "image": "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&q=80",
+    "items": [
+      { "type": "movie",    "title": "Parasite",                    "emoji": "🎬" },
+      { "type": "recipe",   "title": "Japchae Noodles",             "emoji": "🍜" },
+      { "type": "drink",    "title": "Soju Cocktail",               "emoji": "🥃" },
+      { "type": "activity", "title": "Museum or Gallery Visit",     "emoji": "🏛️" }
+    ]
+  },
+  {
+    "id": "c15",
+    "title": "Chef Mode: On",
+    "emoji": "👨‍🍳",
+    "description": "No shortcuts. No delivery. Real cooking, from scratch, tonight.",
+    "tags": ["Culinary", "Solo", "Partner", "Learning"],
+    "color": "from-lime-500 to-green-600",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Cooking Adventure",          "emoji": "🍳" },
+      { "type": "recipe",   "title": "Homemade Pasta Dough",       "emoji": "🍝" },
+      { "type": "drink",    "title": "Sangria",                    "emoji": "🍷" },
+      { "type": "activity", "title": "Wine or Coffee Tasting",     "emoji": "🍾" }
+    ]
+  },
+  {
+    "id": "c16",
+    "title": "Mindful Monday",
+    "emoji": "🌿",
+    "description": "Set the tone. Quiet the noise. Make the week count from day one.",
+    "tags": ["Mindfulness", "Solo", "Morning", "Wellness"],
+    "color": "from-teal-400 to-cyan-500",
+    "image": "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Meditation & Breathwork",  "emoji": "🧘" },
+      { "type": "activity", "title": "Journaling Session",       "emoji": "📓" },
+      { "type": "drink",    "title": "Matcha Latte",             "emoji": "🍵" },
+      { "type": "book",     "title": "Atomic Habits",            "emoji": "📖" }
+    ]
+  },
+  {
+    "id": "c17",
+    "title": "Family Day",
+    "emoji": "👨‍👩‍👧",
+    "description": "Put down the phones. Make something, eat together, be together.",
+    "tags": ["Family", "Group", "Day", "Fun"],
+    "color": "from-yellow-500 to-amber-500",
+    "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80",
+    "items": [
+      { "type": "activity", "title": "Picnic in the Park",     "emoji": "🌿" },
+      { "type": "recipe",   "title": "Homemade Pizza Dough",   "emoji": "🍕" },
+      { "type": "activity", "title": "DIY Craft Project",      "emoji": "🎨" },
+      { "type": "activity", "title": "Board Game Night",       "emoji": "♟️" }
+    ]
+  },
+  {
+    "id": "c18",
+    "title": "Thriller Night",
+    "emoji": "🔍",
+    "description": "Suspense. Tension. A whisky in hand. The best kind of edge-of-seat evening.",
+    "tags": ["Thriller", "Evening", "Solo", "Partner"],
+    "color": "from-zinc-700 to-gray-900",
+    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
+    "items": [
+      { "type": "movie",    "title": "Gone Girl",              "emoji": "🎬" },
+      { "type": "drink",    "title": "Whisky Sour",            "emoji": "🥃" },
+      { "type": "book",     "title": "The Girl with the Dragon Tattoo", "emoji": "📖" },
+      { "type": "activity", "title": "Midnight Drive",         "emoji": "🚗" }
+    ]
+  },
+  {
+    "id": "c19",
+    "title": "Solo Adventure Day",
+    "emoji": "🌄",
+    "description": "No plans, no people. Just you and the world.",
+    "tags": ["Solo", "Adventure", "Outdoor", "Freedom"],
+    "color": "from-indigo-500 to-purple-500",
+    "image": "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Sunrise at a Viewpoint",  "emoji": "🌅" },
+      { "type": "activity", "title": "Café Hopping",            "emoji": "☕" },
+      { "type": "activity", "title": "Photography Walk",        "emoji": "📷" },
+      { "type": "activity", "title": "Farmers Market Visit",    "emoji": "🛍️" }
+    ]
+  },
+  {
+    "id": "c20",
+    "title": "Party Night In",
+    "emoji": "🪩",
+    "description": "Your living room is the venue. You're the DJ. Everyone is invited.",
+    "tags": ["Party", "Group", "Evening", "High Energy"],
+    "color": "from-pink-500 to-purple-500",
+    "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800&q=80",
+    "items": [
+      { "type": "drink",    "title": "Cocktail Punch Bowl",    "emoji": "🍹" },
+      { "type": "recipe",   "title": "Party Sliders",          "emoji": "🍔" },
+      { "type": "activity", "title": "Karaoke Night",          "emoji": "🎤" },
+      { "type": "activity", "title": "Escape Room",            "emoji": "🔐" }
+    ]
+  },
+  {
+    "id": "c21",
+    "title": "Summer Vibes",
+    "emoji": "☀️",
+    "description": "Warm skin, cold drinks, no agenda. Peak summer living.",
+    "tags": ["Summer", "Outdoor", "Group", "Relaxed"],
+    "color": "from-cyan-400 to-sky-500",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Stand-Up Paddleboarding","emoji": "🏄" },
+      { "type": "recipe",   "title": "Watermelon Feta Salad",  "emoji": "🥗" },
+      { "type": "drink",    "title": "Frozen Margarita",        "emoji": "🍹" },
+      { "type": "activity", "title": "Picnic in the Park",     "emoji": "🧺" }
+    ]
+  },
+  {
+    "id": "c22",
+    "title": "Romantic Paris Night",
+    "emoji": "🥐",
+    "description": "Comme si tu étais à Paris. Croissants, cinema, and candlelight.",
+    "tags": ["Romantic", "Cultural", "Evening", "Partner"],
+    "color": "from-red-400 to-rose-600",
+    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
+    "items": [
+      { "type": "movie",    "title": "Midnight in Paris",      "emoji": "🎬" },
+      { "type": "recipe",   "title": "Crêpes Suzette",         "emoji": "🥞" },
+      { "type": "drink",    "title": "Café au Lait",            "emoji": "☕" },
+      { "type": "activity", "title": "Candle Making",           "emoji": "🕯️" }
+    ]
+  },
+  {
+    "id": "c23",
+    "title": "High-Performer Mode",
+    "emoji": "🏆",
+    "description": "For when you're in beast mode. Tools for peak output.",
+    "tags": ["Productivity", "Solo", "Focused", "High Energy"],
+    "color": "from-blue-600 to-indigo-700",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    "items": [
+      { "type": "activity", "title": "Cold Plunge or Ice Bath", "emoji": "🧊" },
+      { "type": "activity", "title": "Morning Run",             "emoji": "🏃" },
+      { "type": "drink",    "title": "Black Coffee",            "emoji": "☕" },
+      { "type": "book",     "title": "Deep Work",               "emoji": "📖" }
+    ]
+  },
+  {
+    "id": "c24",
+    "title": "Midnight Chill",
+    "emoji": "🌙",
+    "description": "Late night wind-down — jazz, a good book, and something warm.",
+    "tags": ["Night", "Solo", "Relaxed", "Cozy"],
+    "color": "from-slate-800 to-zinc-900",
+    "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80",
+    "items": [
+      { "type": "book",     "title": "The Alchemist",           "emoji": "📖" },
+      { "type": "activity", "title": "Stargazing Night",        "emoji": "⭐" },
+      { "type": "drink",    "title": "Chai Masala",             "emoji": "☕" },
+      { "type": "activity", "title": "Letter Writing Session",  "emoji": "✉️" }
+    ]
+  }
+]

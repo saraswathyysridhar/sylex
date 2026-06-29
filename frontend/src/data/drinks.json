@@ -1,0 +1,308 @@
+[
+  {
+    "id": "d1", "title": "Iced Matcha Latte", "name": "Iced Matcha Latte",
+    "image": "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=400&q=80",
+    "category": "Tea", "tags": ["Cold", "Tea", "Trendy"], "genres": ["Tea", "Cold"],
+    "mood": "Energetic", "description": "Vibrant green matcha powder whisked with oat milk over ice.",
+    "ingredients": ["2 tsp matcha powder", "1 tbsp hot water", "200ml oat milk", "ice", "honey to taste"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d2", "title": "Classic Espresso Martini", "name": "Classic Espresso Martini",
+    "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&q=80",
+    "category": "Cocktail", "tags": ["Cocktail", "Coffee", "Night Out"], "genres": ["Cocktail", "Coffee"],
+    "mood": "Romantic", "description": "A silky smooth cocktail combining vodka, coffee liqueur and fresh espresso.",
+    "ingredients": ["50ml vodka", "25ml coffee liqueur", "30ml fresh espresso", "ice"],
+    "difficulty": "Medium", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d3", "title": "Golden Turmeric Latte", "name": "Golden Turmeric Latte",
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80",
+    "category": "Wellness", "tags": ["Hot", "Wellness", "Spiced"], "genres": ["Wellness", "Hot"],
+    "mood": "Cozy", "description": "Warming turmeric, ginger and cinnamon blended in creamy milk — nature's golden hug.",
+    "ingredients": ["1 tsp turmeric", "½ tsp ginger", "¼ tsp cinnamon", "250ml milk", "honey"],
+    "difficulty": "Easy", "time": "8 min", "type": "drink"
+  },
+  {
+    "id": "d4", "title": "Strawberry Basil Lemonade", "name": "Strawberry Basil Lemonade",
+    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Fruity", "Summer"], "genres": ["Mocktail", "Fruity"],
+    "mood": "Cheerful", "description": "Fresh strawberries, basil leaves, and tangy lemon — summer in a glass.",
+    "ingredients": ["10 strawberries", "4 basil leaves", "juice of 2 lemons", "sparkling water", "sugar"],
+    "difficulty": "Easy", "time": "10 min", "type": "drink"
+  },
+  {
+    "id": "d5", "title": "Dark & Stormy", "name": "Dark & Stormy",
+    "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80",
+    "category": "Cocktail", "tags": ["Cocktail", "Spicy", "Rum"], "genres": ["Cocktail", "Spicy"],
+    "mood": "Relaxed", "description": "Dark rum floated on spiced ginger beer with a squeeze of lime.",
+    "ingredients": ["60ml dark rum", "150ml ginger beer", "juice of ½ lime", "ice", "lime wedge"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d6", "title": "Chai Masala", "name": "Chai Masala",
+    "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80",
+    "category": "Tea", "tags": ["Hot", "Spiced", "Cozy"], "genres": ["Tea", "Hot"],
+    "mood": "Cozy", "description": "Aromatic blend of black tea, cardamom, ginger and milk — the ultimate comfort.",
+    "ingredients": ["2 tsp black tea", "3 cardamom pods", "1 inch ginger", "250ml milk", "sugar"],
+    "difficulty": "Easy", "time": "10 min", "type": "drink"
+  },
+  {
+    "id": "d7", "title": "Mango Lassi", "name": "Mango Lassi",
+    "image": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80",
+    "category": "Smoothie", "tags": ["Cold", "Fruity", "Creamy"], "genres": ["Smoothie", "Fruity"],
+    "mood": "Relaxed", "description": "Blended ripe mango with yogurt and a pinch of cardamom — tropical paradise.",
+    "ingredients": ["1 large mango", "200ml yogurt", "100ml milk", "pinch cardamom", "ice"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d8", "title": "Blue Butterfly Pea Lemonade", "name": "Blue Butterfly Pea Lemonade",
+    "image": "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Magical", "Instagram"], "genres": ["Mocktail", "Aesthetic"],
+    "mood": "Whimsical", "description": "Color-changing blue tea turns purple when mixed with lemon — pure visual magic.",
+    "ingredients": ["butterfly pea flowers", "hot water", "lemon juice", "honey", "ice"],
+    "difficulty": "Easy", "time": "10 min", "type": "drink"
+  },
+  {
+    "id": "d9", "title": "Hot Chocolate Noir", "name": "Hot Chocolate Noir",
+    "image": "https://images.unsplash.com/photo-1542990253-a781e5acd041?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1542990253-a781e5acd041?w=400&q=80",
+    "category": "Hot Drink", "tags": ["Hot", "Cozy", "Indulgent"], "genres": ["Hot Drink", "Cozy"],
+    "mood": "Cozy", "description": "Rich dark chocolate melted into steamed milk with a pinch of sea salt.",
+    "ingredients": ["50g dark chocolate 70%", "250ml whole milk", "pinch of sea salt", "whipped cream"],
+    "difficulty": "Easy", "time": "8 min", "type": "drink"
+  },
+  {
+    "id": "d10", "title": "Watermelon Mint Cooler", "name": "Watermelon Mint Cooler",
+    "image": "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Refreshing", "Summer"], "genres": ["Mocktail", "Fresh"],
+    "mood": "Cheerful", "description": "Blended watermelon juice with fresh mint and a squeeze of lime over ice.",
+    "ingredients": ["3 cups watermelon", "handful mint", "juice of 1 lime", "sparkling water", "ice"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d11", "title": "Affogato", "name": "Affogato",
+    "image": "https://images.unsplash.com/photo-1493770348161-369560ae357d?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1493770348161-369560ae357d?w=400&q=80",
+    "category": "Coffee", "tags": ["Coffee", "Dessert", "Quick"], "genres": ["Coffee", "Dessert"],
+    "mood": "Indulgent", "description": "A shot of hot espresso poured over a scoop of vanilla gelato — effortlessly divine.",
+    "ingredients": ["1 shot espresso", "1 scoop vanilla gelato", "optional: amaretto"],
+    "difficulty": "Easy", "time": "3 min", "type": "drink"
+  },
+  {
+    "id": "d12", "title": "Peach Iced Tea", "name": "Peach Iced Tea",
+    "image": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400&q=80",
+    "category": "Tea", "tags": ["Cold", "Fruity", "Tea"], "genres": ["Tea", "Fruity"],
+    "mood": "Relaxed", "description": "Brewed black tea sweetened with fresh peach syrup and served over ice.",
+    "ingredients": ["black tea bags", "fresh peaches", "sugar", "water", "ice", "mint"],
+    "difficulty": "Easy", "time": "15 min", "type": "drink"
+  },
+  {
+    "id": "d13", "title": "Kir Royale", "name": "Kir Royale",
+    "image": "https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?w=400&q=80",
+    "category": "Cocktail", "tags": ["Cocktail", "French", "Elegant", "Champagne"], "genres": ["Cocktail", "French"],
+    "mood": "Romantic", "description": "A jewel of French aperitif culture — crème de cassis topped with cold sparkling champagne.",
+    "ingredients": ["15ml crème de cassis", "100ml champagne or crémant", "lemon twist to garnish"],
+    "difficulty": "Easy", "time": "3 min", "type": "drink"
+  },
+  {
+    "id": "d14", "title": "French 75", "name": "French 75",
+    "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80",
+    "category": "Cocktail", "tags": ["Cocktail", "French", "Classic", "Gin"], "genres": ["Cocktail", "French"],
+    "mood": "Energetic", "description": "Gin, fresh lemon juice, and sugar topped with champagne — the iconic French classic since 1915.",
+    "ingredients": ["45ml gin", "15ml lemon juice", "10ml simple syrup", "60ml champagne", "lemon twist"],
+    "difficulty": "Medium", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d15", "title": "Café de Flore", "name": "Café de Flore",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "category": "Coffee", "tags": ["Coffee", "French", "Hot", "Classic"], "genres": ["Coffee", "French"],
+    "mood": "Cozy", "description": "A proper French café au lait — half strong espresso, half steamed whole milk, served in a wide bowl.",
+    "ingredients": ["double espresso", "200ml whole milk steamed", "sugar cube optional"],
+    "difficulty": "Easy", "time": "6 min", "type": "drink"
+  },
+  {
+    "id": "d16", "title": "Citron Pressé", "name": "Citron Pressé",
+    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "French", "Refreshing", "Vegan"], "genres": ["Mocktail", "French"],
+    "mood": "Cheerful", "description": "The French way — freshly squeezed lemon juice served with a carafe of cold water and sugar on the side. Pure and bright.",
+    "ingredients": ["2 lemons freshly squeezed", "cold sparkling water", "sugar or honey to taste", "ice"],
+    "difficulty": "Easy", "time": "3 min", "type": "drink"
+  },
+  {
+    "id": "d17", "title": "Thandai", "name": "Thandai",
+    "image": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80",
+    "category": "Wellness", "tags": ["Cold", "Indian", "Festive", "Spiced"], "genres": ["Wellness", "Indian"],
+    "mood": "Cozy", "description": "A chilled Holi festival drink — almonds, cashews, rose petals, fennel and saffron blended into cold milk. Utterly aromatic.",
+    "ingredients": ["250ml cold milk", "10 almonds", "8 cashews", "1 tbsp rose petals", "½ tsp fennel seeds", "pinch saffron", "sugar", "cardamom"],
+    "difficulty": "Medium", "time": "20 min", "type": "drink"
+  },
+  {
+    "id": "d18", "title": "Jal Jeera", "name": "Jal Jeera",
+    "image": "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Indian", "Spiced", "Vegan", "Digestive"], "genres": ["Mocktail", "Indian"],
+    "mood": "Energetic", "description": "India's beloved spiced cumin lemonade — tangy, minty and cooling with a hint of black salt. A perfect digestif.",
+    "ingredients": ["1 tsp roasted cumin powder", "1 tbsp lemon juice", "¼ tsp black salt", "handful mint leaves", "1 tsp tamarind paste", "cold water", "chaat masala"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d19", "title": "Rose Sharbat", "name": "Rose Sharbat",
+    "image": "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Indian", "Floral", "Vegan", "Sweet"], "genres": ["Mocktail", "Indian"],
+    "mood": "Romantic", "description": "Rooh Afza rose syrup poured over chilled milk and water with basil seeds — fragrant, blush-pink and utterly Indian summer.",
+    "ingredients": ["2 tbsp rose syrup (Rooh Afza)", "200ml cold milk or water", "1 tsp basil seeds (sabja)", "ice", "rose petals to garnish"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d20", "title": "South Indian Filter Coffee", "name": "South Indian Filter Coffee",
+    "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80",
+    "category": "Coffee", "tags": ["Hot", "Indian", "South Indian", "Traditional", "Frothy"], "genres": ["Coffee", "Indian"],
+    "mood": "Energetic", "description": "Chicory-blended coffee decoction poured into hot frothy milk from height for that signature foam — the pride of Tamil Nadu.",
+    "ingredients": ["2 tbsp coffee-chicory blend decoction", "180ml hot whole milk", "sugar to taste"],
+    "difficulty": "Medium", "time": "15 min", "type": "drink"
+  },
+  {
+    "id": "d21", "title": "Chaas (Spiced Buttermilk)", "name": "Chaas (Spiced Buttermilk)",
+    "image": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400&q=80",
+    "category": "Wellness", "tags": ["Cold", "Indian", "Probiotic", "Spiced", "Digestive"], "genres": ["Wellness", "Indian"],
+    "mood": "Relaxed", "description": "Thin yogurt whisked with water, roasted cumin, curry leaves and green chilli — North India's ultimate summer cooler and gut healer.",
+    "ingredients": ["200ml plain yogurt", "150ml cold water", "½ tsp roasted cumin", "pinch rock salt", "3–4 curry leaves", "½ green chilli (optional)", "coriander"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d22", "title": "Nimbu Pani", "name": "Nimbu Pani",
+    "image": "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Indian", "Refreshing", "Vegan", "Classic"], "genres": ["Mocktail", "Indian"],
+    "mood": "Cheerful", "description": "India's street lemonade — fresh lime juice, black salt, sugar, roasted cumin and a hint of ginger in chilled water.",
+    "ingredients": ["juice of 1 lime", "1 tsp sugar", "¼ tsp black salt", "pinch cumin powder", "200ml cold water", "ice", "mint"],
+    "difficulty": "Easy", "time": "3 min", "type": "drink"
+  },
+  {
+    "id": "d23", "title": "Sago at Gulaman", "name": "Sago at Gulaman",
+    "image": "https://images.unsplash.com/photo-1575022319012-ef5d009e4ff7?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1575022319012-ef5d009e4ff7?w=400&q=80",
+    "category": "Cold", "tags": ["Cold", "Filipino", "Sweet", "Chewy", "Street Drink"], "genres": ["Cold", "Filipino"],
+    "mood": "Cheerful", "description": "The beloved Filipino street drink — small tapioca pearls and pandan-flavoured jelly cubes in sweet brown sugar syrup over crushed ice.",
+    "ingredients": ["¼ cup small tapioca pearls cooked", "¼ cup gulaman jelly diced", "3 tbsp brown sugar syrup", "pandan extract", "crushed ice"],
+    "difficulty": "Medium", "time": "30 min", "type": "drink"
+  },
+  {
+    "id": "d24", "title": "Calamansi Juice", "name": "Calamansi Juice",
+    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Filipino", "Citrus", "Vegan", "Refreshing"], "genres": ["Mocktail", "Filipino"],
+    "mood": "Energetic", "description": "The Filipino citrus — calamansi (a cross of lime and mandarin) squeezed fresh into cold water with a touch of honey. Tangy perfection.",
+    "ingredients": ["10–12 calamansi or small limes", "200ml cold water", "1 tbsp honey or sugar", "ice"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d25", "title": "Buko Pandan Shake", "name": "Buko Pandan Shake",
+    "image": "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=400&q=80",
+    "category": "Smoothie", "tags": ["Cold", "Filipino", "Coconut", "Pandan", "Creamy"], "genres": ["Smoothie", "Filipino"],
+    "mood": "Relaxed", "description": "Fresh young coconut strips and pandan-flavoured jelly blended with coconut cream and condensed milk — a dessert-drink in one glass.",
+    "ingredients": ["1 cup young coconut strips", "100ml coconut cream", "2 tbsp condensed milk", "½ tsp pandan extract", "ice"],
+    "difficulty": "Easy", "time": "8 min", "type": "drink"
+  },
+  {
+    "id": "d26", "title": "Rooibos Sunset Tea", "name": "Rooibos Sunset Tea",
+    "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80",
+    "category": "Tea", "tags": ["Hot", "South African", "Herbal", "Vegan", "Antioxidant"], "genres": ["Tea", "South African"],
+    "mood": "Relaxed", "description": "South Africa's gift to the world — red bush tea brewed with orange peel, cinnamon and a touch of vanilla. Caffeine-free and rich in antioxidants.",
+    "ingredients": ["2 rooibos tea bags", "250ml boiling water", "strip of orange peel", "½ cinnamon stick", "¼ tsp vanilla", "honey to taste"],
+    "difficulty": "Easy", "time": "7 min", "type": "drink"
+  },
+  {
+    "id": "d27", "title": "Amarula Cream", "name": "Amarula Cream",
+    "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80",
+    "category": "Cocktail", "tags": ["Cocktail", "South African", "Creamy", "Indulgent", "Exotic"], "genres": ["Cocktail", "South African"],
+    "mood": "Romantic", "description": "Amarula liqueur — made from the fruit of the African marula tree — poured over ice with fresh cream. Africa in a glass.",
+    "ingredients": ["50ml Amarula cream liqueur", "30ml fresh cream", "ice", "grated dark chocolate to garnish"],
+    "difficulty": "Easy", "time": "3 min", "type": "drink"
+  },
+  {
+    "id": "d28", "title": "Acai Berry Boost", "name": "Acai Berry Boost",
+    "image": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&q=80",
+    "category": "Smoothie", "tags": ["Cold", "Vegan", "Superfood", "Antioxidant", "Energizing"], "genres": ["Smoothie", "Vegan"],
+    "mood": "Energetic", "description": "Frozen acai blended with banana, blueberries and oat milk — deep purple, nutrient-dense and totally plant-based.",
+    "ingredients": ["100g frozen acai pulp", "1 banana", "½ cup blueberries", "200ml oat milk", "1 tbsp chia seeds"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d29", "title": "Coconut Matcha Latte", "name": "Coconut Matcha Latte",
+    "image": "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=400&q=80",
+    "category": "Tea", "tags": ["Hot", "Vegan", "Matcha", "Coconut", "Creamy"], "genres": ["Tea", "Vegan"],
+    "mood": "Cozy", "description": "Ceremonial-grade matcha whisked into frothy steamed coconut milk with a touch of maple syrup. 100% plant-based calm.",
+    "ingredients": ["1 tsp ceremonial matcha", "2 tbsp hot water (80°C)", "200ml coconut milk steamed", "1 tsp maple syrup"],
+    "difficulty": "Easy", "time": "6 min", "type": "drink"
+  },
+  {
+    "id": "d30", "title": "Oat Milk Chai", "name": "Oat Milk Chai",
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80",
+    "category": "Tea", "tags": ["Hot", "Vegan", "Spiced", "Cozy", "Indian-inspired"], "genres": ["Tea", "Vegan"],
+    "mood": "Cozy", "description": "Warming chai spices — cardamom, ginger, clove, cinnamon — brewed into creamy oat milk. Completely dairy-free comfort.",
+    "ingredients": ["2 tsp black tea leaves", "200ml oat milk", "3 cardamom pods", "½ inch ginger", "2 cloves", "½ cinnamon stick", "maple syrup"],
+    "difficulty": "Easy", "time": "10 min", "type": "drink"
+  },
+  {
+    "id": "d31", "title": "Spirulina Supergreen", "name": "Spirulina Supergreen",
+    "image": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&q=80",
+    "category": "Smoothie", "tags": ["Cold", "Vegan", "Superfood", "Detox", "Wellness"], "genres": ["Smoothie", "Vegan"],
+    "mood": "Healthy", "description": "Spirulina, spinach, cucumber, green apple and coconut water — the ultimate plant-powered green fuel.",
+    "ingredients": ["1 tsp spirulina powder", "handful spinach", "½ cucumber", "1 green apple", "200ml coconut water", "juice of ½ lemon", "ginger"],
+    "difficulty": "Easy", "time": "5 min", "type": "drink"
+  },
+  {
+    "id": "d32", "title": "Aperol Spritz", "name": "Aperol Spritz",
+    "image": "https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?w=400&q=80",
+    "category": "Cocktail", "tags": ["Cocktail", "Italian", "Refreshing", "Summer", "Aperitif"], "genres": ["Cocktail", "Italian"],
+    "mood": "Cheerful", "description": "The Italian aperitivo hour icon — bitter-sweet Aperol, prosecco and a splash of soda over ice with an orange slice.",
+    "ingredients": ["90ml prosecco", "60ml Aperol", "30ml soda water", "ice", "orange slice"],
+    "difficulty": "Easy", "time": "3 min", "type": "drink"
+  },
+  {
+    "id": "d33", "title": "Hibiscus Cooler", "name": "Hibiscus Cooler",
+    "image": "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=400&q=80",
+    "category": "Mocktail", "tags": ["Cold", "Vegan", "Floral", "Tangy", "Beautiful"], "genres": ["Mocktail", "Vegan"],
+    "mood": "Romantic", "description": "Dried hibiscus flowers steeped then chilled — tart, floral and a stunning deep crimson. Naturally vegan and caffeine-free.",
+    "ingredients": ["3 tbsp dried hibiscus flowers", "500ml boiling water", "2 tbsp honey or agave", "juice of 1 lime", "fresh ginger slices", "ice", "mint"],
+    "difficulty": "Easy", "time": "15 min", "type": "drink"
+  },
+  {
+    "id": "d34", "title": "Ginger Kombucha Fizz", "name": "Ginger Kombucha Fizz",
+    "image": "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=400&q=80",
+    "poster": "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=400&q=80",
+    "category": "Wellness", "tags": ["Cold", "Vegan", "Probiotic", "Fizzy", "Gut Health"], "genres": ["Wellness", "Vegan"],
+    "mood": "Healthy", "description": "Raw ginger kombucha poured over crushed ice with fresh lemon and mint — effervescent, probiotic and completely alive.",
+    "ingredients": ["250ml ginger kombucha", "juice of ½ lemon", "handful fresh mint", "1 tsp fresh ginger grated", "crushed ice"],
+    "difficulty": "Easy", "time": "3 min", "type": "drink"
+  }
+]
