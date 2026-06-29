@@ -47,13 +47,13 @@ A modern entertainment discovery platform that helps users explore movies, books
 * TheMealDB
 
 ---
-
+cd
 ## 🚀 Installation
 
 ### Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/saraswathyysridhar/sylex.git
 cd sylex
 ```
 
@@ -82,7 +82,7 @@ python app.py
 Runs on:
 
 ```
-http://localhost:5000
+https://sylex.onrender.com
 ```
 
 ---
