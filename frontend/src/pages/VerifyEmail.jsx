@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
-import axios from 'axios'
+import api from '../api/client'
 import { CheckCircle2, XCircle, Loader2, Leaf } from 'lucide-react'
 
 export default function VerifyEmail() {
@@ -15,14 +15,15 @@ export default function VerifyEmail() {
       setMessage('Missing verification token.')
       return
     }
-    axios.get('/api/auth/verify-email', { params: { token } })
+    api.get('/api/auth/verify-email', { params: { token } })
       .then(res => {
         setStatus('success')
         setMessage(res.data.message || 'Email verified. You can now sign in.')
       })
       .catch(err => {
+        const data = err.response?.data?.error
         setStatus('error')
-        setMessage(err.response?.data?.error || 'Invalid or expired verification link.')
+        setMessage(typeof data === 'string' ? data : 'Invalid or expired verification link.')
       })
   }, [searchParams])
 

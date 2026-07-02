@@ -1,7 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../api/client'
 
 const AuthContext = createContext(null)
+
+const extractError = (err, fallback) => {
+  const data = err.response?.data?.error
+  if (typeof data === 'string') return data
+  if (data && typeof data === 'object' && typeof data.message === 'string') return data.message
+  return fallback
+}
 
 export function AuthProvider({ children }) {
   const [user, setUser]           = useState(null)
@@ -21,6 +28,8 @@ export function AuthProvider({ children }) {
       setUser(u)
       const storedAvatar = localStorage.getItem(`sylex_avatar_${u.id}`)
       if (storedAvatar) setAvatarState(storedAvatar)
+      const storedToken = localStorage.getItem('sylex_token')
+      if (storedToken) api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`
     }
     if (storedFavs)   setFavorites(JSON.parse(storedFavs))
     if (storedNotes)  setNotesState(JSON.parse(storedNotes))
@@ -30,28 +39,28 @@ export function AuthProvider({ children }) {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post('/api/auth/login', { email, password })
+      const res = await api.post('/api/auth/login', { email, password })
       const userData = res.data.user
       setUser(userData)
       localStorage.setItem('sylex_user', JSON.stringify(userData))
       if (res.data.token) {
         localStorage.setItem('sylex_token', res.data.token)
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+        api.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
       }
       const storedAvatar = localStorage.getItem(`sylex_avatar_${userData.id}`)
       setAvatarState(storedAvatar || null)
       return { success: true }
     } catch (err) {
-      return { success: false, error: err.response?.data?.error || 'Something went wrong. Please try again.' }
+      return { success: false, error: extractError(err, 'Something went wrong. Please try again.') }
     }
   }
 
   const signup = async (name, email, password) => {
     try {
-      const res = await axios.post('/api/auth/signup', { name, email, password })
+      const res = await api.post('/api/auth/signup', { name, email, password })
       return { success: true, needsVerification: true, message: res.data.message }
     } catch (err) {
-      return { success: false, error: err.response?.data?.error || 'Something went wrong. Please try again.' }
+      return { success: false, error: extractError(err, 'Something went wrong. Please try again.') }
     }
   }
 
@@ -62,7 +71,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('sylex_user')
     localStorage.removeItem('sylex_token')
     localStorage.removeItem('sylex_favorites')
-    delete axios.defaults.headers.common['Authorization']
+    delete api.defaults.headers.common['Authorization']
   }
 
   const toggleFavorite = (item, type) => {
