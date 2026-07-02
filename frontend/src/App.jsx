@@ -14,6 +14,7 @@ import Collections from './pages/Collections'
 import Profile from './pages/Profile'
 import Drinks from './pages/Drinks'
 import Planner from './pages/Planner'
+import VerifyEmail from './pages/VerifyEmail'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <FilterProvider>
           <ScrollToTop />
           <Routes>
+            <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="movies" element={<Movies />} />

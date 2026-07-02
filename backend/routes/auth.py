@@ -3,12 +3,16 @@ import bcrypt
 import jwt
 import datetime
 import os
-from email_service import send_welcome_email, send_admin_notification
+import re
+import secrets
+from email_service import send_welcome_email, send_admin_notification, send_verification_email
 
 auth_bp = Blueprint('auth', __name__)
 
 # In-memory store for demo (replace with MongoDB in production)
 users_store = {}
+
+EMAIL_RE = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
 
 def create_token(user_id, email):
     payload = {
@@ -28,14 +32,18 @@ def signup():
     if not name or not email or not password:
         return jsonify({'error': 'All fields are required'}), 400
 
-    if len(password) < 6:
-        return jsonify({'error': 'Password must be at least 6 characters'}), 400
+    if not EMAIL_RE.match(email):
+        return jsonify({'error': 'Please enter a valid email address'}), 400
+
+    if len(password) < 6 or len(password) > 8:
+        return jsonify({'error': 'Password must be 6-8 characters'}), 400
 
     if email in users_store:
-        return jsonify({'error': 'Email already registered'}), 409
+        return jsonify({'error': 'An account with this email already exists'}), 409
 
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     user_id = str(len(users_store) + 1)
+    verify_token = secrets.token_urlsafe(32)
 
     users_store[email] = {
         'id': user_id,
@@ -44,15 +52,17 @@ def signup():
         'password': hashed,
         'created_at': datetime.datetime.utcnow().isoformat(),
         'favorites': {},
+        'verified': False,
+        'verify_token': verify_token,
     }
 
-    token = create_token(user_id, email)
-    user = {'id': user_id, 'name': name, 'email': email}
-
+    send_verification_email(name, email, verify_token)       # required to activate the account
     send_welcome_email(name, email)                          # welcome email to new user
     send_admin_notification(name, email, len(users_store))  # alert to admin inbox
 
-    return jsonify({'user': user, 'token': token}), 201
+    return jsonify({
+        'message': 'Account created. Check your email to verify your account before signing in.',
+    }), 201
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
@@ -65,15 +75,32 @@ def login():
 
     user = users_store.get(email)
     if not user:
-        return jsonify({'error': 'Invalid email or password'}), 401
+        return jsonify({'error': 'No account exists with this email'}), 404
 
     if not bcrypt.checkpw(password.encode('utf-8'), user['password']):
-        return jsonify({'error': 'Invalid email or password'}), 401
+        return jsonify({'error': 'Incorrect password'}), 401
+
+    if not user.get('verified'):
+        return jsonify({'error': 'Please verify your email before signing in'}), 403
 
     token = create_token(user['id'], email)
     user_data = {'id': user['id'], 'name': user['name'], 'email': user['email']}
 
     return jsonify({'user': user_data, 'token': token}), 200
+
+@auth_bp.route('/verify-email', methods=['GET'])
+def verify_email():
+    token = request.args.get('token', '')
+    if not token:
+        return jsonify({'error': 'Missing verification token'}), 400
+
+    for user in users_store.values():
+        if user.get('verify_token') == token:
+            user['verified'] = True
+            user['verify_token'] = None
+            return jsonify({'message': 'Email verified. You can now sign in.'}), 200
+
+    return jsonify({'error': 'Invalid or expired verification link'}), 400
 
 @auth_bp.route('/verify', methods=['GET'])
 def verify():

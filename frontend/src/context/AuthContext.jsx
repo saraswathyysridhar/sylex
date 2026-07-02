@@ -41,31 +41,17 @@ export function AuthProvider({ children }) {
       const storedAvatar = localStorage.getItem(`sylex_avatar_${userData.id}`)
       setAvatarState(storedAvatar || null)
       return { success: true }
-    } catch {
-      const mockUser = { id: Date.now(), name: email.split('@')[0], email }
-      setUser(mockUser)
-      localStorage.setItem('sylex_user', JSON.stringify(mockUser))
-      return { success: true }
+    } catch (err) {
+      return { success: false, error: err.response?.data?.error || 'Something went wrong. Please try again.' }
     }
   }
 
   const signup = async (name, email, password) => {
     try {
       const res = await axios.post('/api/auth/signup', { name, email, password })
-      const userData = res.data.user
-      setUser(userData)
-      localStorage.setItem('sylex_user', JSON.stringify(userData))
-      if (res.data.token) {
-        localStorage.setItem('sylex_token', res.data.token)
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
-      }
-      setAvatarState(null)
-      return { success: true }
-    } catch {
-      const mockUser = { id: Date.now(), name, email }
-      setUser(mockUser)
-      localStorage.setItem('sylex_user', JSON.stringify(mockUser))
-      return { success: true }
+      return { success: true, needsVerification: true, message: res.data.message }
+    } catch (err) {
+      return { success: false, error: err.response?.data?.error || 'Something went wrong. Please try again.' }
     }
   }
 
