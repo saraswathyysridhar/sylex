@@ -9,7 +9,6 @@ export default function AuthModal({ isOpen, onClose }) {
   const [showPwd, setShowPwd] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError]     = useState('')
-  const [verifySent, setVerifySent] = useState(false)
   const { login, signup }     = useAuth()
 
   const submit = async (e) => {
@@ -18,20 +17,13 @@ export default function AuthModal({ isOpen, onClose }) {
       const r = mode === 'login'
         ? await login(form.email, form.password)
         : await signup(form.name, form.email, form.password)
-      if (r.success) {
-        if (r.needsVerification) setVerifySent(true)
-        else onClose()
-      } else setError(r.error || 'Something went wrong')
+      if (r.success) onClose()
+      else setError(r.error || 'Something went wrong')
     } catch { setError('An error occurred. Please try again.') }
     finally { setLoading(false) }
   }
 
-  const switchMode = (m) => {
-    setMode(m); setError(''); setVerifySent(false)
-    setForm({ name: '', email: '', password: '' })
-  }
-
-  const handleClose = () => { setVerifySent(false); setError(''); onClose() }
+  const switchMode = (m) => { setMode(m); setError('') }
 
   const upd = f => e => setForm(p => ({ ...p, [f]: e.target.value }))
 
@@ -40,7 +32,7 @@ export default function AuthModal({ isOpen, onClose }) {
       {isOpen && (
         <>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }} onClick={handleClose}
+            transition={{ duration: 0.2 }} onClick={onClose}
             className="fixed inset-0 z-[300]"
             style={{ background: 'rgba(28,26,24,0.65)', backdropFilter: 'blur(14px)' }} />
 
@@ -65,30 +57,17 @@ export default function AuthModal({ isOpen, onClose }) {
                   <span className="font-bold tracking-[0.2em] text-ink text-sm">SYLEX</span>
                 </div>
                 <h2 className="text-2xl font-bold text-ink">
-                  {verifySent ? 'Check your email' : mode === 'login' ? 'Welcome back' : 'Create account'}
+                  {mode === 'login' ? 'Welcome back' : 'Create account'}
                 </h2>
                 <p className="text-ink-muted text-sm mt-1">
-                  {verifySent
-                    ? "We've sent a verification link — confirm it to activate your account."
-                    : mode === 'login' ? 'Sign in to save your favorites' : 'Start discovering what you love'}
+                  {mode === 'login' ? 'Sign in to save your favorites' : 'Start discovering what you love'}
                 </p>
-                <button onClick={handleClose}
+                <button onClick={onClose}
                   className="absolute top-6 right-6 p-2 rounded-xl text-ink-muted hover:text-ink hover:bg-ink/5 transition-all">
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
-              {verifySent ? (
-                <div className="px-8 py-8 text-center space-y-5">
-                  <p className="text-sm text-ink-muted">
-                    Once verified, come back and sign in with your new account.
-                  </p>
-                  <button onClick={() => switchMode('login')} className="w-full btn-primary py-3 text-sm">
-                    Go to sign in
-                  </button>
-                </div>
-              ) : (
-              <>
               {/* Form */}
               <form onSubmit={submit} className="px-8 py-6 space-y-4">
                 {mode === 'signup' && (
@@ -127,8 +106,6 @@ export default function AuthModal({ isOpen, onClose }) {
                   </button>
                 </p>
               </div>
-              </>
-              )}
             </div>
           </motion.div>
         </>

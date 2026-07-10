@@ -115,6 +115,11 @@ def _build_welcome_html(name: str) -> str:
               </tr>
             </table>
 
+            <p style="margin:0 0 10px;font-size:12px;line-height:1.7;color:rgba(255,240,220,0.45);text-align:center;">
+              Don't see this in your inbox next time? Check your Spam or Promotions folder
+              and mark us as "Not spam" so future emails land where you'll see them.
+            </p>
+
             <p style="margin:0;font-size:13px;line-height:1.7;color:rgba(255,240,220,0.35);text-align:center;">
               You're receiving this because you created an account at Sylex.<br/>
               Questions? Reply to this email anytime.
@@ -157,6 +162,7 @@ def _send(name: str, to_email: str) -> None:
         "Explore films, recipes, games, books, music, and drinks "
         "curated for your exact moment.\n\n"
         f"Get started: {APP_URL}\n\n"
+        "(Don't see this next time? Check your Spam or Promotions folder and mark us as \"Not spam\".)\n\n"
         "— The Sylex Team"
     )
     msg.attach(MIMEText(plain, 'plain'))
@@ -167,8 +173,8 @@ def _send(name: str, to_email: str) -> None:
             server.ehlo()
             server.starttls()
             server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(FROM_EMAIL, to_email, msg.as_string())
-        print(f'[email] Welcome email sent → {to_email}')
+            server.send_message(msg, from_addr=FROM_EMAIL, to_addrs=to_email)
+        print(f'[email] Welcome email sent -> {to_email}')
     except Exception as exc:
         # Log but never crash the signup flow
         print(f'[email] Failed to send to {to_email}: {exc}')
@@ -177,102 +183,6 @@ def _send(name: str, to_email: str) -> None:
 def send_welcome_email(name: str, email: str) -> None:
     """Fire-and-forget: spawns a daemon thread so signup response is instant."""
     t = threading.Thread(target=_send, args=(name, email), daemon=True)
-    t.start()
-
-
-# ── Email verification ──────────────────────────────────────────────────────
-
-def _build_verify_html(name: str, verify_url: str) -> str:
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Verify your Sylex account</title>
-</head>
-<body style="margin:0;padding:0;background:#F7F3EE;font-family:'Georgia',serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7F3EE;padding:40px 0;">
-    <tr><td align="center">
-      <table width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;">
-        <tr>
-          <td style="background:#0C0A08;border-radius:16px 16px 0 0;padding:40px 48px 32px;text-align:center;">
-            <p style="margin:0 0 6px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#C49A6C;">
-              VERIFY YOUR EMAIL
-            </p>
-            <h1 style="margin:0;font-size:40px;font-weight:400;letter-spacing:-0.03em;color:#FDFAF6;font-style:italic;">
-              Sylex
-            </h1>
-          </td>
-        </tr>
-        <tr>
-          <td style="background:#0C0A08;padding:0 48px;">
-            <div style="height:1px;background:linear-gradient(90deg,transparent,#C49A6C,transparent);"></div>
-          </td>
-        </tr>
-        <tr>
-          <td style="background:#0C0A08;border-radius:0 0 16px 16px;padding:36px 48px 44px;">
-            <p style="margin:0 0 20px;font-size:16px;line-height:1.7;color:rgba(255,240,220,0.7);">
-              Hey {name}, one last step — confirm this is your email address to
-              activate your Sylex account.
-            </p>
-            <table cellpadding="0" cellspacing="0" style="margin:0 auto 28px;">
-              <tr>
-                <td style="border-radius:100px;background:#C49A6C;">
-                  <a href="{verify_url}" style="display:inline-block;padding:14px 40px;font-size:14px;font-weight:700;color:#1A0E08;text-decoration:none;letter-spacing:0.04em;">
-                    Verify Email &rarr;
-                  </a>
-                </td>
-              </tr>
-            </table>
-            <p style="margin:0;font-size:12px;line-height:1.7;color:rgba(255,240,220,0.35);text-align:center;">
-              If you didn't create a Sylex account, you can ignore this email.
-            </p>
-          </td>
-        </tr>
-      </table>
-    </td></tr>
-  </table>
-</body>
-</html>"""
-
-
-def _send_verification(name: str, to_email: str, token: str) -> None:
-    """Blocking send — always called from a background thread."""
-    if not SMTP_USER or not SMTP_PASS:
-        print(f'[email] SMTP not configured — skipping verification email to {to_email}')
-        return
-
-    verify_url = f'{APP_URL}/verify-email?token={token}'
-
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = 'Verify your Sylex account'
-    msg['From']    = f'{FROM_NAME} <{FROM_EMAIL}>'
-    msg['To']      = to_email
-
-    plain = (
-        f"Hey {name},\n\n"
-        "Confirm this is your email address to activate your Sylex account.\n\n"
-        f"Verify: {verify_url}\n\n"
-        "If you didn't create a Sylex account, you can ignore this email.\n\n"
-        "— The Sylex Team"
-    )
-    msg.attach(MIMEText(plain, 'plain'))
-    msg.attach(MIMEText(_build_verify_html(name, verify_url), 'html'))
-
-    try:
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
-            server.ehlo()
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(FROM_EMAIL, to_email, msg.as_string())
-        print(f'[email] Verification email sent → {to_email}')
-    except Exception as exc:
-        print(f'[email] Failed to send verification email to {to_email}: {exc}')
-
-
-def send_verification_email(name: str, email: str, token: str) -> None:
-    """Fire-and-forget: spawns a daemon thread so signup response is instant."""
-    t = threading.Thread(target=_send_verification, args=(name, email, token), daemon=True)
     t.start()
 
 
@@ -352,8 +262,8 @@ def _send_admin(new_name: str, new_email: str, count: int) -> None:
             server.ehlo()
             server.starttls()
             server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(FROM_EMAIL, ADMIN_EMAIL, msg.as_string())
-        print(f'[email] Admin notification sent → {ADMIN_EMAIL} (member #{count})')
+            server.send_message(msg, from_addr=FROM_EMAIL, to_addrs=ADMIN_EMAIL)
+        print(f'[email] Admin notification sent -> {ADMIN_EMAIL} (member #{count})')
     except Exception as exc:
         print(f'[email] Admin notification failed: {exc}')
 
@@ -361,4 +271,78 @@ def _send_admin(new_name: str, new_email: str, count: int) -> None:
 def send_admin_notification(new_name: str, new_email: str, count: int) -> None:
     """Fire-and-forget admin alert when a new user registers."""
     t = threading.Thread(target=_send_admin, args=(new_name, new_email, count), daemon=True)
+    t.start()
+
+
+# ── Periodic visitor digest ─────────────────────────────────────────────────
+
+VISIT_DIGEST_EMAIL = 'sylexwebadmin@gmail.com'
+
+def _send_visitor_digest(count: int, days: int) -> None:
+    """Blocking send — always called from a background thread."""
+    if not SMTP_USER or not SMTP_PASS:
+        print(f'[email] SMTP not configured — skipping visitor digest')
+        return
+
+    subject = f'📈 Sylex traffic digest — {count} visitor{"s" if count != 1 else ""} in the last {days} days'
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><title>Visitor Digest</title></head>
+<body style="margin:0;padding:0;background:#F7F3EE;font-family:'Georgia',serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7F3EE;padding:32px 0;">
+    <tr><td align="center">
+      <table width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;">
+        <tr>
+          <td style="background:#0C0A08;border-radius:14px 14px 0 0;padding:28px 36px 22px;text-align:center;">
+            <p style="margin:0 0 4px;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#C49A6C;">Sylex Admin</p>
+            <h1 style="margin:0;font-size:36px;font-weight:400;color:#FDFAF6;letter-spacing:-0.03em;font-style:italic;">Traffic Digest</h1>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#0C0A08;border-radius:0 0 14px 14px;padding:24px 36px 32px;">
+            <p style="margin:0 0 20px;font-size:14px;line-height:1.7;color:rgba(255,240,220,0.65);">
+              Here's how Sylex did over the last {days} days:
+            </p>
+            <div style="text-align:center;padding:20px;background:rgba(196,154,108,0.1);border:1px solid rgba(196,154,108,0.25);border-radius:10px;">
+              <p style="margin:0;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C49A6C;">Unique Visitors</p>
+              <p style="margin:6px 0 0;font-size:42px;font-weight:400;color:#C49A6C;letter-spacing:-0.04em;font-style:italic;">{count}</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:18px 0 0;text-align:center;">
+            <p style="margin:0;font-size:11px;color:rgba(60,50,40,0.4);">&copy; 2026 Sylex &nbsp;&middot;&nbsp; Admin notification</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>"""
+
+    plain = f"Sylex traffic digest\n\n{count} unique visitor(s) over the last {days} days."
+
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = subject
+    msg['From']    = f'{FROM_NAME} <{FROM_EMAIL}>'
+    msg['To']      = VISIT_DIGEST_EMAIL
+
+    msg.attach(MIMEText(plain, 'plain'))
+    msg.attach(MIMEText(html, 'html'))
+
+    try:
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
+            server.ehlo()
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.send_message(msg, from_addr=FROM_EMAIL, to_addrs=VISIT_DIGEST_EMAIL)
+        print(f'[email] Visitor digest sent -> {VISIT_DIGEST_EMAIL} ({count} visitors)')
+    except Exception as exc:
+        print(f'[email] Visitor digest failed: {exc}')
+
+
+def send_visitor_digest(count: int, days: int = 7) -> None:
+    """Fire-and-forget periodic traffic summary."""
+    t = threading.Thread(target=_send_visitor_digest, args=(count, days), daemon=True)
     t.start()

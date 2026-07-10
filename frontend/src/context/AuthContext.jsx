@@ -58,7 +58,15 @@ export function AuthProvider({ children }) {
   const signup = async (name, email, password) => {
     try {
       const res = await api.post('/api/auth/signup', { name, email, password })
-      return { success: true, needsVerification: true, message: res.data.message }
+      const userData = res.data.user
+      setUser(userData)
+      localStorage.setItem('sylex_user', JSON.stringify(userData))
+      if (res.data.token) {
+        localStorage.setItem('sylex_token', res.data.token)
+        api.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+      }
+      setAvatarState(null)
+      return { success: true }
     } catch (err) {
       return { success: false, error: extractError(err, 'Something went wrong. Please try again.') }
     }

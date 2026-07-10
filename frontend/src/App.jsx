@@ -1,8 +1,10 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import { FilterProvider } from './context/FilterContext'
 import ScrollToTop from './components/ui/ScrollToTop'
 import Layout from './components/layout/Layout'
+import api from './api/client'
 import Home from './pages/Home'
 import Movies from './pages/Movies'
 import Recipes from './pages/Recipes'
@@ -14,16 +16,25 @@ import Collections from './pages/Collections'
 import Profile from './pages/Profile'
 import Drinks from './pages/Drinks'
 import Planner from './pages/Planner'
-import VerifyEmail from './pages/VerifyEmail'
 
 export default function App() {
+  useEffect(() => {
+    if (sessionStorage.getItem('sylex_visit_tracked')) return
+    let visitorId = localStorage.getItem('sylex_visitor_id')
+    if (!visitorId) {
+      visitorId = crypto.randomUUID()
+      localStorage.setItem('sylex_visitor_id', visitorId)
+    }
+    sessionStorage.setItem('sylex_visit_tracked', '1')
+    api.post('/api/visits/track', { visitorId }).catch(() => {})
+  }, [])
+
   return (
     <BrowserRouter>
       <AuthProvider>
         <FilterProvider>
           <ScrollToTop />
           <Routes>
-            <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="movies" element={<Movies />} />
