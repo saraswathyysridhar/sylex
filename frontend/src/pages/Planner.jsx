@@ -2,6 +2,31 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, Sparkles, RefreshCw } from 'lucide-react'
+import DetailModal from '../components/ui/DetailModal'
+import { searchMovies, getMovieDetails } from '../api/tmdb'
+import { searchMeals } from '../api/mealdb'
+import { searchBooks } from '../api/googleBooks'
+import drinksData from '../data/drinks.json'
+import playlistsData from '../data/playlists.json'
+import activitiesData from '../data/activities.json'
+
+const CAT_TYPE = { movie: 'movie', recipe: 'recipe', drink: 'drink', music: 'playlist', activity: 'activity', book: 'book' }
+const LOCAL_DATA = { drink: drinksData, music: playlistsData, activity: activitiesData }
+
+// Strip trailing "(2001)" year or " – Author Name" from plan item names so
+// they search cleanly against real catalogs.
+const cleanTitle = (name) => name
+  .replace(/\s*\(\d{4}\)\s*$/, '')
+  .replace(/\s*[–—-]\s*[^–—-]+$/, '')
+  .trim()
+
+const findLocal = (data, name) => {
+  const clean = cleanTitle(name).toLowerCase()
+  return data.find(x => {
+    const t = (x.title || x.name || '').toLowerCase()
+    return t === clean || t.includes(clean) || clean.includes(t)
+  })
+}
 
 const SERIF = '"Bodoni Moda", "Cormorant Garamond", Georgia, serif'
 const GOLD  = '#C49A6C'
@@ -329,6 +354,44 @@ function OptionTile({ opt, selected, onSelect }) {
 
 // ── Results view ──────────────────────────────────────────────────────────────
 function ResultsView({ plan, onRestart, navigate }) {
+  const [modalItem, setModalItem] = useState(null)
+  const [modalType, setModalType] = useState(null)
+  const [loadingKey, setLoadingKey] = useState(null)
+
+  const openPlanItem = async (catKey, item) => {
+    const type = CAT_TYPE[catKey]
+    // "Skip the book — you have company" etc. isn't a real recommendation —
+    // don't search for it, just show the note as-is.
+    if (/^skip\b/i.test(item.name)) {
+      setModalItem({ id: `plan-${catKey}`, title: item.name, name: item.name, description: item.note, type })
+      setModalType(type)
+      return
+    }
+    setLoadingKey(catKey)
+    let found = null
+    try {
+      if (catKey === 'movie') {
+        const results = await searchMovies(cleanTitle(item.name))
+        if (results[0]) found = await getMovieDetails(results[0].id)
+      } else if (catKey === 'recipe') {
+        const results = await searchMeals(cleanTitle(item.name))
+        found = results[0] || null
+      } else if (catKey === 'book') {
+        const results = await searchBooks(cleanTitle(item.name))
+        found = results[0] || null
+      } else {
+        found = findLocal(LOCAL_DATA[catKey], item.name)
+      }
+    } catch { /* fall through to the lightweight fallback below */ }
+
+    setModalItem(found || {
+      id: `plan-${catKey}`, title: item.name, name: item.name,
+      description: item.note, type,
+    })
+    setModalType(type)
+    setLoadingKey(null)
+  }
+
   return (
     <div style={{ minHeight: '100vh', background: DARK, paddingTop: '140px', paddingBottom: '100px' }}>
 
@@ -379,12 +442,16 @@ function ResultsView({ plan, onRestart, navigate }) {
                 key={cat.key}
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -3 }}
                 transition={{ duration: 0.55, delay: 0.15 + i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+                onClick={() => openPlanItem(cat.key, item)}
                 style={{
                   padding: '28px 26px', borderRadius: 20,
                   background: 'rgba(255,255,255,0.03)',
                   border: '1px solid rgba(255,255,255,0.07)',
                   position: 'relative', overflow: 'hidden',
+                  cursor: 'pointer', opacity: loadingKey === cat.key ? 0.55 : 1,
+                  transition: 'opacity 0.2s, border-color 0.2s',
                 }}
               >
                 {/* Color top bar */}
@@ -427,6 +494,12 @@ function ResultsView({ plan, onRestart, navigate }) {
                     fontStyle: 'italic', lineHeight: 1.55,
                   }}>
                     {item.note}
+                  </div>
+                )}
+
+                {loadingKey === cat.key && (
+                  <div style={{ fontSize: 11, color: cat.color, marginTop: 10, fontWeight: 600, letterSpacing: '0.04em' }}>
+                    Opening…
                   </div>
                 )}
               </motion.div>
@@ -472,6 +545,13 @@ function ResultsView({ plan, onRestart, navigate }) {
           </button>
         </motion.div>
       </div>
+
+      <DetailModal
+        item={modalItem}
+        type={modalType}
+        isOpen={!!modalType}
+        onClose={() => { setModalItem(null); setModalType(null) }}
+      />
     </div>
   )
 }

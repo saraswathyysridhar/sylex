@@ -1,212 +1,525 @@
 [
   {
-    "id": "p1", "title": "Rainy Day Lo-Fi", "name": "Rainy Day Lo-Fi",
-    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80",
-    "poster": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80",
-    "mood": "Cozy", "genre": "Lo-Fi", "tags": ["Chill", "Study", "Rain"],
-    "genres": ["Lo-Fi", "Study"], "description": "Warm lo-fi beats for rainy afternoons and cozy evenings.",
-    "tracks": 28, "duration": "1h 52m",
+    "id": "p1",
+    "title": "Rainy Day Lo-Fi",
+    "name": "Rainy Day Lo-Fi",
+    "mood": "Cozy",
+    "genre": "Lo-Fi",
+    "tags": [
+      "Chill",
+      "Study",
+      "Rain"
+    ],
+    "genres": [
+      "Lo-Fi",
+      "Study"
+    ],
+    "description": "Warm lo-fi beats for rainy afternoons and cozy evenings.",
+    "tracks": 28,
+    "duration": "1h 52m",
     "embedUrl": "https://www.youtube.com/embed/jfKfPfyJRdk",
     "type": "playlist"
   },
   {
-    "id": "p2", "title": "Deep Focus — Study", "name": "Deep Focus — Study",
+    "id": "p2",
+    "title": "Deep Focus — Study",
+    "name": "Deep Focus — Study",
     "image": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=400&q=80",
-    "mood": "Focused", "genre": "Ambient", "tags": ["Focus", "Study", "Instrumental"],
-    "genres": ["Ambient", "Classical"], "description": "Minimalist ambient music for deep work, coding, and study sessions.",
-    "tracks": 35, "duration": "2h 30m",
+    "mood": "Focused",
+    "genre": "Ambient",
+    "tags": [
+      "Focus",
+      "Study",
+      "Instrumental"
+    ],
+    "genres": [
+      "Ambient",
+      "Classical"
+    ],
+    "description": "Minimalist ambient music for deep work, coding, and study sessions.",
+    "tracks": 35,
+    "duration": "2h 30m",
     "embedUrl": "https://www.youtube.com/embed/5qap5aO4i9A",
     "type": "playlist"
   },
   {
-    "id": "p3", "title": "Morning Energy Boost", "name": "Morning Energy Boost",
+    "id": "p3",
+    "title": "Morning Energy Boost",
+    "name": "Morning Energy Boost",
     "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80",
-    "mood": "Energetic", "genre": "Pop", "tags": ["Workout", "Morning", "Upbeat"],
-    "genres": ["Pop", "Indie"], "description": "Upbeat tracks to kickstart your morning with energy and positivity.",
-    "tracks": 22, "duration": "1h 15m",
+    "mood": "Energetic",
+    "genre": "Pop",
+    "tags": [
+      "Workout",
+      "Morning",
+      "Upbeat"
+    ],
+    "genres": [
+      "Pop",
+      "Indie"
+    ],
+    "description": "Upbeat tracks to kickstart your morning with energy and positivity.",
+    "tracks": 22,
+    "duration": "1h 15m",
     "embedUrl": "https://www.youtube.com/embed/JGwWNGJdvx8",
     "type": "playlist"
   },
   {
-    "id": "p4", "title": "Chill Indie Vibes", "name": "Chill Indie Vibes",
+    "id": "p4",
+    "title": "Chill Indie Vibes",
+    "name": "Chill Indie Vibes",
     "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80",
-    "mood": "Relaxed", "genre": "Indie", "tags": ["Indie", "Chill", "Afternoon"],
-    "genres": ["Indie", "Alternative"], "description": "Soft indie folk and dreamy alternative for slow, peaceful afternoons.",
-    "tracks": 30, "duration": "1h 45m",
+    "mood": "Relaxed",
+    "genre": "Indie",
+    "tags": [
+      "Indie",
+      "Chill",
+      "Afternoon"
+    ],
+    "genres": [
+      "Indie",
+      "Alternative"
+    ],
+    "description": "Soft indie folk and dreamy alternative for slow, peaceful afternoons.",
+    "tracks": 30,
+    "duration": "1h 45m",
     "embedUrl": "https://www.youtube.com/embed/36YnV9STBqc",
     "type": "playlist"
   },
   {
-    "id": "p5", "title": "Midnight Jazz", "name": "Midnight Jazz",
+    "id": "p5",
+    "title": "Midnight Jazz",
+    "name": "Midnight Jazz",
     "image": "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=400&q=80",
-    "mood": "Romantic", "genre": "Jazz", "tags": ["Jazz", "Night", "Romantic"],
-    "genres": ["Jazz", "Soul"], "description": "Smooth jazz for late nights, dinner parties, and intimate evenings.",
-    "tracks": 18, "duration": "1h 20m",
+    "mood": "Romantic",
+    "genre": "Jazz",
+    "tags": [
+      "Jazz",
+      "Night",
+      "Romantic"
+    ],
+    "genres": [
+      "Jazz",
+      "Soul"
+    ],
+    "description": "Smooth jazz for late nights, dinner parties, and intimate evenings.",
+    "tracks": 18,
+    "duration": "1h 20m",
     "embedUrl": "https://www.youtube.com/embed/Dx5qFachd3A",
     "type": "playlist"
   },
   {
-    "id": "p6", "title": "Workout Beast Mode", "name": "Workout Beast Mode",
+    "id": "p6",
+    "title": "Workout Beast Mode",
+    "name": "Workout Beast Mode",
     "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80",
-    "mood": "Energetic", "genre": "Hip-Hop", "tags": ["Workout", "Gym", "High Energy"],
-    "genres": ["Hip-Hop", "Electronic"], "description": "Hard-hitting beats to push you through every rep and set.",
-    "tracks": 25, "duration": "1h 30m",
+    "mood": "Energetic",
+    "genre": "Hip-Hop",
+    "tags": [
+      "Workout",
+      "Gym",
+      "High Energy"
+    ],
+    "genres": [
+      "Hip-Hop",
+      "Electronic"
+    ],
+    "description": "Hard-hitting beats to push you through every rep and set.",
+    "tracks": 25,
+    "duration": "1h 30m",
     "embedUrl": "https://www.youtube.com/embed/Y4S8EFfp12s",
     "type": "playlist"
   },
   {
-    "id": "p7", "title": "Classical for Reading", "name": "Classical for Reading",
+    "id": "p7",
+    "title": "Classical for Reading",
+    "name": "Classical for Reading",
     "image": "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=400&q=80",
-    "mood": "Focused", "genre": "Classical", "tags": ["Classical", "Books", "Calm"],
-    "genres": ["Classical", "Instrumental"], "description": "Timeless classical pieces that fade into the background as you read.",
-    "tracks": 20, "duration": "1h 50m",
+    "mood": "Focused",
+    "genre": "Classical",
+    "tags": [
+      "Classical",
+      "Books",
+      "Calm"
+    ],
+    "genres": [
+      "Classical",
+      "Instrumental"
+    ],
+    "description": "Timeless classical pieces that fade into the background as you read.",
+    "tracks": 20,
+    "duration": "1h 50m",
     "embedUrl": "https://www.youtube.com/embed/mxxgIO0XsXk",
     "type": "playlist"
   },
   {
-    "id": "p8", "title": "Night Drive Synthwave", "name": "Night Drive Synthwave",
+    "id": "p8",
+    "title": "Night Drive Synthwave",
+    "name": "Night Drive Synthwave",
     "image": "https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=400&q=80",
-    "mood": "Nostalgic", "genre": "Synthwave", "tags": ["Synthwave", "Night", "Retro"],
-    "genres": ["Synthwave", "Electronic"], "description": "Neon-lit retrowave for late night drives and nostalgic moods.",
-    "tracks": 24, "duration": "1h 40m",
+    "mood": "Nostalgic",
+    "genre": "Synthwave",
+    "tags": [
+      "Synthwave",
+      "Night",
+      "Retro"
+    ],
+    "genres": [
+      "Synthwave",
+      "Electronic"
+    ],
+    "description": "Neon-lit retrowave for late night drives and nostalgic moods.",
+    "tracks": 24,
+    "duration": "1h 40m",
     "embedUrl": "https://www.youtube.com/embed/rDfS8B2-Mt4",
     "type": "playlist"
   },
-
-  { "id": "p-ta-1", "title": "Tamil Hits 2025", "name": "Tamil Hits 2025",
+  {
+    "id": "p-ta-1",
+    "title": "Tamil Hits 2025",
+    "name": "Tamil Hits 2025",
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
-    "mood": "Energetic", "genre": "Tamil Pop", "region": "tamil", "language": "ta",
-    "tags": ["Tamil", "Latest", "Dance", "Pop"],
-    "genres": ["Tamil", "Pop"], "description": "Latest Tamil chart-toppers — kuthu anthems and peppy numbers from Kollywood.",
-    "tracks": 40, "duration": "2h 20m",
+    "mood": "Energetic",
+    "genre": "Tamil Pop",
+    "region": "tamil",
+    "language": "ta",
+    "tags": [
+      "Tamil",
+      "Latest",
+      "Dance",
+      "Pop"
+    ],
+    "genres": [
+      "Tamil",
+      "Pop"
+    ],
+    "description": "Latest Tamil chart-toppers — kuthu anthems and peppy numbers from Kollywood.",
+    "tracks": 40,
+    "duration": "2h 20m",
     "embedUrl": "https://www.youtube.com/embed/EAyBjzlsY0s",
-    "type": "playlist" },
-
-  { "id": "p-ta-2", "title": "Tamil Melody Mix", "name": "Tamil Melody Mix",
+    "type": "playlist"
+  },
+  {
+    "id": "p-ta-2",
+    "title": "Tamil Melody Mix",
+    "name": "Tamil Melody Mix",
     "image": "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=80",
-    "mood": "Romantic", "genre": "Tamil Melody", "region": "tamil", "language": "ta",
-    "tags": ["Tamil", "Melody", "Romantic", "Soft"],
-    "genres": ["Tamil", "Melody"], "description": "Soulful Tamil melodies — heartfelt songs for quiet evenings and rain-soaked afternoons.",
-    "tracks": 35, "duration": "2h 05m",
+    "mood": "Romantic",
+    "genre": "Tamil Melody",
+    "region": "tamil",
+    "language": "ta",
+    "tags": [
+      "Tamil",
+      "Melody",
+      "Romantic",
+      "Soft"
+    ],
+    "genres": [
+      "Tamil",
+      "Melody"
+    ],
+    "description": "Soulful Tamil melodies — heartfelt songs for quiet evenings and rain-soaked afternoons.",
+    "tracks": 35,
+    "duration": "2h 05m",
     "embedUrl": "https://www.youtube.com/embed/nfWlot6h_JM",
-    "type": "playlist" },
-
-  { "id": "p-ta-3", "title": "AR Rahman Classics", "name": "AR Rahman Classics",
+    "type": "playlist"
+  },
+  {
+    "id": "p-ta-3",
+    "title": "AR Rahman Classics",
+    "name": "AR Rahman Classics",
     "image": "https://images.unsplash.com/photo-1573871669414-010dbf73ca84?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1573871669414-010dbf73ca84?w=400&q=80",
-    "mood": "Nostalgic", "genre": "Tamil Film", "region": "tamil", "language": "ta",
-    "tags": ["AR Rahman", "Tamil", "Classic", "Cinema"],
-    "genres": ["Tamil", "Classical", "Film"], "description": "Timeless masterpieces by AR Rahman — orchestral magic from the golden era of Tamil cinema.",
-    "tracks": 30, "duration": "1h 55m",
+    "mood": "Nostalgic",
+    "genre": "Tamil Film",
+    "region": "tamil",
+    "language": "ta",
+    "tags": [
+      "AR Rahman",
+      "Tamil",
+      "Classic",
+      "Cinema"
+    ],
+    "genres": [
+      "Tamil",
+      "Classical",
+      "Film"
+    ],
+    "description": "Timeless masterpieces by AR Rahman — orchestral magic from the golden era of Tamil cinema.",
+    "tracks": 30,
+    "duration": "1h 55m",
     "embedUrl": "https://www.youtube.com/embed/8gCrFGDmEFQ",
-    "type": "playlist" },
-
-  { "id": "p-te-1", "title": "Telugu Hits 2025", "name": "Telugu Hits 2025",
+    "type": "playlist"
+  },
+  {
+    "id": "p-te-1",
+    "title": "Telugu Hits 2025",
+    "name": "Telugu Hits 2025",
     "image": "https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=400&q=80",
-    "mood": "Energetic", "genre": "Telugu Pop", "region": "telugu", "language": "te",
-    "tags": ["Telugu", "Latest", "Tollywood", "Dance"],
-    "genres": ["Telugu", "Pop"], "description": "Foot-thumping Telugu bangers — from mass entertainers to high-energy dance numbers.",
-    "tracks": 38, "duration": "2h 10m",
+    "mood": "Energetic",
+    "genre": "Telugu Pop",
+    "region": "telugu",
+    "language": "te",
+    "tags": [
+      "Telugu",
+      "Latest",
+      "Tollywood",
+      "Dance"
+    ],
+    "genres": [
+      "Telugu",
+      "Pop"
+    ],
+    "description": "Foot-thumping Telugu bangers — from mass entertainers to high-energy dance numbers.",
+    "tracks": 38,
+    "duration": "2h 10m",
     "embedUrl": "https://www.youtube.com/embed/G6DnSWNMHnk",
-    "type": "playlist" },
-
-  { "id": "p-te-2", "title": "Telugu Melody", "name": "Telugu Melody",
+    "type": "playlist"
+  },
+  {
+    "id": "p-te-2",
+    "title": "Telugu Melody",
+    "name": "Telugu Melody",
     "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&q=80",
-    "mood": "Romantic", "genre": "Telugu Melody", "region": "telugu", "language": "te",
-    "tags": ["Telugu", "Melody", "Romantic", "Soft"],
-    "genres": ["Telugu", "Melody"], "description": "Gentle Telugu melodies that tug at the heart — perfect for unwinding after a long day.",
-    "tracks": 28, "duration": "1h 45m",
+    "mood": "Romantic",
+    "genre": "Telugu Melody",
+    "region": "telugu",
+    "language": "te",
+    "tags": [
+      "Telugu",
+      "Melody",
+      "Romantic",
+      "Soft"
+    ],
+    "genres": [
+      "Telugu",
+      "Melody"
+    ],
+    "description": "Gentle Telugu melodies that tug at the heart — perfect for unwinding after a long day.",
+    "tracks": 28,
+    "duration": "1h 45m",
     "embedUrl": "https://www.youtube.com/embed/RsZc9F4EfAc",
-    "type": "playlist" },
-
-  { "id": "p-hi-1", "title": "Bollywood Latest 2025", "name": "Bollywood Latest 2025",
+    "type": "playlist"
+  },
+  {
+    "id": "p-hi-1",
+    "title": "Bollywood Latest 2025",
+    "name": "Bollywood Latest 2025",
     "image": "https://images.unsplash.com/photo-1545128485-c400e7702796?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1545128485-c400e7702796?w=400&q=80",
-    "mood": "Upbeat", "genre": "Bollywood", "region": "hindi", "language": "hi",
-    "tags": ["Hindi", "Bollywood", "Latest", "Party"],
-    "genres": ["Hindi", "Bollywood", "Pop"], "description": "Fresh Bollywood bangers — the biggest Hindi film songs of 2025 in one place.",
-    "tracks": 42, "duration": "2h 35m",
+    "mood": "Upbeat",
+    "genre": "Bollywood",
+    "region": "hindi",
+    "language": "hi",
+    "tags": [
+      "Hindi",
+      "Bollywood",
+      "Latest",
+      "Party"
+    ],
+    "genres": [
+      "Hindi",
+      "Bollywood",
+      "Pop"
+    ],
+    "description": "Fresh Bollywood bangers — the biggest Hindi film songs of 2025 in one place.",
+    "tracks": 42,
+    "duration": "2h 35m",
     "embedUrl": "https://www.youtube.com/embed/b5BFBPmlRrA",
-    "type": "playlist" },
-
-  { "id": "p-hi-2", "title": "Hindi Classics & Ghazals", "name": "Hindi Classics & Ghazals",
-    "image": "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=400&q=80",
-    "poster": "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=400&q=80",
-    "mood": "Nostalgic", "genre": "Ghazal", "region": "hindi", "language": "hi",
-    "tags": ["Hindi", "Ghazal", "Classic", "Soulful"],
-    "genres": ["Hindi", "Ghazal", "Classical"], "description": "Timeless Hindi melodies and soul-stirring ghazals — music that lives forever.",
-    "tracks": 25, "duration": "1h 50m",
+    "type": "playlist"
+  },
+  {
+    "id": "p-hi-2",
+    "title": "Hindi Classics & Ghazals",
+    "name": "Hindi Classics & Ghazals",
+    "mood": "Nostalgic",
+    "genre": "Ghazal",
+    "region": "hindi",
+    "language": "hi",
+    "tags": [
+      "Hindi",
+      "Ghazal",
+      "Classic",
+      "Soulful"
+    ],
+    "genres": [
+      "Hindi",
+      "Ghazal",
+      "Classical"
+    ],
+    "description": "Timeless Hindi melodies and soul-stirring ghazals — music that lives forever.",
+    "tracks": 25,
+    "duration": "1h 50m",
     "embedUrl": "https://www.youtube.com/embed/mRD0-GxqHVo",
-    "type": "playlist" },
-
-  { "id": "p-en-1", "title": "English Pop Hits 2025", "name": "English Pop Hits 2025",
+    "type": "playlist"
+  },
+  {
+    "id": "p-en-1",
+    "title": "English Pop Hits 2025",
+    "name": "English Pop Hits 2025",
     "image": "https://images.unsplash.com/photo-1501386761578-eaa54b6103a3?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1501386761578-eaa54b6103a3?w=400&q=80",
-    "mood": "Upbeat", "genre": "Pop", "region": "english", "language": "en",
-    "tags": ["English", "Pop", "Chart", "Latest"],
-    "genres": ["Pop", "English"], "description": "Today's biggest English pop anthems — chart-toppers from Taylor, The Weeknd, Sabrina Carpenter and more.",
-    "tracks": 36, "duration": "2h 00m",
+    "mood": "Upbeat",
+    "genre": "Pop",
+    "region": "english",
+    "language": "en",
+    "tags": [
+      "English",
+      "Pop",
+      "Chart",
+      "Latest"
+    ],
+    "genres": [
+      "Pop",
+      "English"
+    ],
+    "description": "Today's biggest English pop anthems — chart-toppers from Taylor, The Weeknd, Sabrina Carpenter and more.",
+    "tracks": 36,
+    "duration": "2h 00m",
     "embedUrl": "https://www.youtube.com/embed/ktvTqknDobU",
-    "type": "playlist" },
-
-  { "id": "p-en-2", "title": "English Hip Hop Essentials", "name": "English Hip Hop Essentials",
+    "type": "playlist"
+  },
+  {
+    "id": "p-en-2",
+    "title": "English Hip Hop Essentials",
+    "name": "English Hip Hop Essentials",
     "image": "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?w=400&q=80",
-    "mood": "Energetic", "genre": "Hip-Hop", "region": "english", "language": "en",
-    "tags": ["English", "Hip-Hop", "Rap", "Beats"],
-    "genres": ["Hip-Hop", "Rap", "English"], "description": "Hard-hitting English rap and hip hop — Kendrick, Drake, Travis Scott and the latest drops.",
-    "tracks": 32, "duration": "1h 55m",
+    "mood": "Energetic",
+    "genre": "Hip-Hop",
+    "region": "english",
+    "language": "en",
+    "tags": [
+      "English",
+      "Hip-Hop",
+      "Rap",
+      "Beats"
+    ],
+    "genres": [
+      "Hip-Hop",
+      "Rap",
+      "English"
+    ],
+    "description": "Hard-hitting English rap and hip hop — Kendrick, Drake, Travis Scott and the latest drops.",
+    "tracks": 32,
+    "duration": "1h 55m",
     "embedUrl": "https://www.youtube.com/embed/Q-i1XZvXSaE",
-    "type": "playlist" },
-
-  { "id": "p-hh-1", "title": "Hip Hop & Trap Bangers", "name": "Hip Hop & Trap Bangers",
+    "type": "playlist"
+  },
+  {
+    "id": "p-hh-1",
+    "title": "Hip Hop & Trap Bangers",
+    "name": "Hip Hop & Trap Bangers",
     "image": "https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?w=400&q=80",
-    "mood": "Energetic", "genre": "Hip-Hop", "region": null, "language": "en",
-    "tags": ["Hip-Hop", "Trap", "Bass", "Urban"],
-    "genres": ["Hip-Hop", "Trap", "Electronic"], "description": "Trap beats and hip hop heat for the streets — high-energy urban anthems that demand volume.",
-    "tracks": 28, "duration": "1h 35m",
+    "mood": "Energetic",
+    "genre": "Hip-Hop",
+    "region": null,
+    "language": "en",
+    "tags": [
+      "Hip-Hop",
+      "Trap",
+      "Bass",
+      "Urban"
+    ],
+    "genres": [
+      "Hip-Hop",
+      "Trap",
+      "Electronic"
+    ],
+    "description": "Trap beats and hip hop heat for the streets — high-energy urban anthems that demand volume.",
+    "tracks": 28,
+    "duration": "1h 35m",
     "embedUrl": "https://www.youtube.com/embed/4UETABMihhc",
-    "type": "playlist" },
-
-  { "id": "p-pop-1", "title": "Global Pop Anthems", "name": "Global Pop Anthems",
+    "type": "playlist"
+  },
+  {
+    "id": "p-pop-1",
+    "title": "Global Pop Anthems",
+    "name": "Global Pop Anthems",
     "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80",
-    "mood": "Happy", "genre": "Pop", "region": null, "language": "en",
-    "tags": ["Pop", "Global", "Upbeat", "Dance"],
-    "genres": ["Pop", "Dance"], "description": "The world's biggest pop songs — infectious melodies and massive choruses from every corner of the globe.",
-    "tracks": 45, "duration": "2h 45m",
+    "mood": "Happy",
+    "genre": "Pop",
+    "region": null,
+    "language": "en",
+    "tags": [
+      "Pop",
+      "Global",
+      "Upbeat",
+      "Dance"
+    ],
+    "genres": [
+      "Pop",
+      "Dance"
+    ],
+    "description": "The world's biggest pop songs — infectious melodies and massive choruses from every corner of the globe.",
+    "tracks": 45,
+    "duration": "2h 45m",
     "embedUrl": "https://www.youtube.com/embed/1ahbeMXmRuc",
-    "type": "playlist" },
-
-  { "id": "p-op-1", "title": "Opera Masterpieces", "name": "Opera Masterpieces",
+    "type": "playlist"
+  },
+  {
+    "id": "p-op-1",
+    "title": "Opera Masterpieces",
+    "name": "Opera Masterpieces",
     "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80",
-    "mood": "Reflective", "genre": "Opera", "region": null, "language": "en",
-    "tags": ["Opera", "Classical", "Orchestra", "Dramatic"],
-    "genres": ["Opera", "Classical"], "description": "The grandest voices in music history — arias and overtures from Verdi, Puccini, Mozart and Wagner.",
-    "tracks": 20, "duration": "1h 40m",
+    "mood": "Reflective",
+    "genre": "Opera",
+    "region": null,
+    "language": "en",
+    "tags": [
+      "Opera",
+      "Classical",
+      "Orchestra",
+      "Dramatic"
+    ],
+    "genres": [
+      "Opera",
+      "Classical"
+    ],
+    "description": "The grandest voices in music history — arias and overtures from Verdi, Puccini, Mozart and Wagner.",
+    "tracks": 20,
+    "duration": "1h 40m",
     "embedUrl": "https://www.youtube.com/embed/GGU1P6lBW6Q",
-    "type": "playlist" },
-
-  { "id": "p-rnb-1", "title": "R&B Soul Vibes", "name": "R&B Soul Vibes",
+    "type": "playlist"
+  },
+  {
+    "id": "p-rnb-1",
+    "title": "R&B Soul Vibes",
+    "name": "R&B Soul Vibes",
     "image": "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=400&q=80",
     "poster": "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=400&q=80",
-    "mood": "Romantic", "genre": "R&B", "region": null, "language": "en",
-    "tags": ["R&B", "Soul", "Smooth", "Romantic"],
-    "genres": ["R&B", "Soul"], "description": "Smooth R&B and neo-soul for late nights — silky grooves and heartfelt vocals that move you.",
-    "tracks": 30, "duration": "1h 55m",
+    "mood": "Romantic",
+    "genre": "R&B",
+    "region": null,
+    "language": "en",
+    "tags": [
+      "R&B",
+      "Soul",
+      "Smooth",
+      "Romantic"
+    ],
+    "genres": [
+      "R&B",
+      "Soul"
+    ],
+    "description": "Smooth R&B and neo-soul for late nights — silky grooves and heartfelt vocals that move you.",
+    "tracks": 30,
+    "duration": "1h 55m",
     "embedUrl": "https://www.youtube.com/embed/gMeq9VnXlWs",
-    "type": "playlist" }
+    "type": "playlist"
+  }
 ]
