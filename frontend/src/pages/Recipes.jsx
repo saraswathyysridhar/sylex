@@ -43,20 +43,59 @@ const RECIPE_FIELDS = [
   ]},
 ]
 
+// TheMealDB tags newer entries with full country names rather than the
+// adjectival area names its own /list.php?a=list endpoint suggests —
+// e.g. Indian dishes are stored under area "India", not "Indian", French
+// under "France" not "French", American under "United States" not
+// "American". Using the adjectival form silently returns zero results.
 const CUISINE_AREAS = {
   italian:      ['Italian'],
-  french:       ['French'],
+  french:       ['France'],
   asian:        ['Chinese', 'Japanese', 'Thai', 'Vietnamese'],
   mexican:      ['Mexican'],
-  indian:       ['Indian'],
-  south_indian: ['Indian'],
-  north_indian: ['Indian'],
-  american:     ['American'],
+  indian:       ['India'],
+  south_indian: ['India'],
+  north_indian: ['India'],
+  american:     ['United States'],
   mediterranean:['Greek', 'Spanish', 'Moroccan'],
   filipino:     ['Filipino'],
-  albanian:     ['Croatian'],
-  south_african:['Kenyan'],
+  albanian:     ['Albanian'],
+  south_african:['South African'],
   british:      ['British'],
+}
+
+// TheMealDB's "India" area dishes skew North Indian/Mughlai — these keyword
+// lists let us split the pool by dish name instead of showing the same
+// undifferentiated set for both South and North Indian filters.
+const SOUTH_INDIAN_KEYWORDS = ['dosa', 'idli', 'sambar', 'vada', 'uttapam', 'rasam', 'appam', 'pongal', 'upma', 'payasam', 'chettinad', 'bisi bele', 'avial', 'poriyal', 'coconut chutney']
+const NORTH_INDIAN_KEYWORDS = ['tandoori', 'naan', 'paratha', 'paneer', 'dal', 'rogan josh', 'biryani', 'curry', 'masala', 'kebab', 'tikka', 'korma', 'handi', 'mandi']
+
+// TheMealDB currently has zero real matches for these cuisines under any
+// spelling — better to show real, hand-picked dishes than nothing or (as
+// the code used to do) a different country's food mislabeled as this one.
+const CURATED_FALLBACK_RECIPES = {
+  south_indian: [
+    { id: 'si1', title: 'Masala Dosa', name: 'Masala Dosa', cuisine: 'South Indian', category: 'Vegetarian', genres: ['South Indian', 'Vegetarian'], tags: ['South Indian'], description: 'A crispy rice-and-lentil crepe filled with spiced potato masala, served with sambar and coconut chutney.', ingredients: [], type: 'recipe' },
+    { id: 'si2', title: 'Idli Sambar', name: 'Idli Sambar', cuisine: 'South Indian', category: 'Vegetarian', genres: ['South Indian', 'Vegetarian'], tags: ['South Indian'], description: 'Steamed rice-and-lentil cakes served with a tangy, tamarind-based lentil and vegetable stew.', ingredients: [], type: 'recipe' },
+    { id: 'si3', title: 'Medu Vada', name: 'Medu Vada', cuisine: 'South Indian', category: 'Vegetarian', genres: ['South Indian', 'Vegetarian'], tags: ['South Indian'], description: 'Crispy, savory lentil doughnuts, traditionally served with sambar and coconut chutney.', ingredients: [], type: 'recipe' },
+    { id: 'si4', title: 'Uttapam', name: 'Uttapam', cuisine: 'South Indian', category: 'Vegetarian', genres: ['South Indian', 'Vegetarian'], tags: ['South Indian'], description: 'A thick, savory rice-and-lentil pancake topped with onions, tomatoes, and green chilies.', ingredients: [], type: 'recipe' },
+    { id: 'si5', title: 'Rasam', name: 'Rasam', cuisine: 'South Indian', category: 'Vegetarian', genres: ['South Indian', 'Vegetarian'], tags: ['South Indian'], description: 'A tangy, peppery tamarind soup — a South Indian staple, often served with rice.', ingredients: [], type: 'recipe' },
+    { id: 'si6', title: 'Bisi Bele Bath', name: 'Bisi Bele Bath', cuisine: 'South Indian', category: 'Vegetarian', genres: ['South Indian', 'Vegetarian'], tags: ['South Indian'], description: 'A Karnataka specialty of spiced rice, lentils, and vegetables cooked together into one comforting dish.', ingredients: [], type: 'recipe' },
+    { id: 'si7', title: 'Pongal', name: 'Pongal', cuisine: 'South Indian', category: 'Vegetarian', genres: ['South Indian', 'Vegetarian'], tags: ['South Indian'], description: 'A comforting rice-and-lentil porridge tempered with cumin, pepper, and ghee.', ingredients: [], type: 'recipe' },
+    { id: 'si8', title: 'Chettinad Chicken Curry', name: 'Chettinad Chicken Curry', cuisine: 'South Indian', category: 'Chicken', genres: ['South Indian', 'Chicken'], tags: ['South Indian'], description: 'A fiery, aromatic Tamil Nadu chicken curry built on freshly roasted and ground spices.', ingredients: [], type: 'recipe' },
+  ],
+  albanian: [
+    { id: 'al1', title: 'Tavë Kosi', name: 'Tavë Kosi', cuisine: 'Albanian', category: 'Lamb', genres: ['Albanian'], tags: ['Albanian'], description: "Albania's national dish — baked lamb with rice in a tangy baked yogurt sauce.", ingredients: [], type: 'recipe' },
+    { id: 'al2', title: 'Byrek', name: 'Byrek', cuisine: 'Albanian', category: 'Vegetarian', genres: ['Albanian', 'Vegetarian'], tags: ['Albanian'], description: 'Flaky layered phyllo pastry filled with cheese, spinach, or minced meat.', ingredients: [], type: 'recipe' },
+    { id: 'al3', title: 'Fërgesë', name: 'Fërgesë', cuisine: 'Albanian', category: 'Vegetarian', genres: ['Albanian', 'Vegetarian'], tags: ['Albanian'], description: 'A baked dish of peppers, tomatoes, and cottage cheese, popular around Tirana.', ingredients: [], type: 'recipe' },
+    { id: 'al4', title: 'Flija', name: 'Flija', cuisine: 'Albanian', category: 'Dessert', genres: ['Albanian'], tags: ['Albanian'], description: 'A traditional layered pancake-like dish, slow-cooked in layers over an open flame.', ingredients: [], type: 'recipe' },
+  ],
+  south_african: [
+    { id: 'sa1', title: 'Bobotie', name: 'Bobotie', cuisine: 'South African', category: 'Beef', genres: ['South African'], tags: ['South African'], description: "South Africa's signature dish — spiced minced meat baked under a golden egg custard topping.", ingredients: [], type: 'recipe' },
+    { id: 'sa2', title: 'Bunny Chow', name: 'Bunny Chow', cuisine: 'South African', category: 'Starter', genres: ['South African'], tags: ['South African'], description: 'A hollowed-out loaf of bread filled with rich curry — a Durban street food classic.', ingredients: [], type: 'recipe' },
+    { id: 'sa3', title: 'Chakalaka', name: 'Chakalaka', cuisine: 'South African', category: 'Vegetarian', genres: ['South African', 'Vegetarian'], tags: ['South African'], description: 'A spicy vegetable relish of peppers, tomatoes, and beans, traditionally served with braai.', ingredients: [], type: 'recipe' },
+    { id: 'sa4', title: 'Malva Pudding', name: 'Malva Pudding', cuisine: 'South African', category: 'Dessert', genres: ['South African'], tags: ['South African'], description: 'A sticky, caramelized sponge dessert served warm with custard or cream.', ingredients: [], type: 'recipe' },
+  ],
 }
 
 const TYPE_MAP = {
@@ -195,9 +234,22 @@ export default function Recipes() {
 
                 let pool
                 if (cuisines.length) {
-                  const areas = cuisines.flatMap(c => CUISINE_AREAS[c] || [])
-                  const results = await Promise.all(areas.map(a => getMealsByArea(a).catch(() => [])))
-                  pool = dedup(results.flat())
+                  const perCuisine = await Promise.all(cuisines.map(async (c) => {
+                    const areas = CUISINE_AREAS[c] || []
+                    const raw = dedup((await Promise.all(areas.map(a => getMealsByArea(a).catch(() => [])))).flat())
+
+                    let items = raw
+                    if (c === 'south_indian') {
+                      items = raw.filter(r => SOUTH_INDIAN_KEYWORDS.some(k => r.title.toLowerCase().includes(k)))
+                    } else if (c === 'north_indian') {
+                      const narrowed = raw.filter(r => NORTH_INDIAN_KEYWORDS.some(k => r.title.toLowerCase().includes(k)))
+                      if (narrowed.length) items = narrowed
+                    }
+
+                    if (!items.length && CURATED_FALLBACK_RECIPES[c]) items = CURATED_FALLBACK_RECIPES[c]
+                    return items
+                  }))
+                  pool = dedup(perCuisine.flat())
                   if (cats.length) {
                     const narrow = pool.filter(r => cats.some(c =>
                       r.category?.toLowerCase() === c.toLowerCase() ||

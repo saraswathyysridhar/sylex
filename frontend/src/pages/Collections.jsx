@@ -1,10 +1,16 @@
 import { useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Lock, ArrowUpRight, Sparkles } from 'lucide-react'
+import { Lock, ArrowUpRight, Sparkles, X } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import AmbientBg from '../components/ui/AmbientBg'
 import PageStreaks from '../components/ui/PageStreaks'
 import collectionsData from '../data/collections.json'
+
+const TYPE_PATH = {
+  movie: '/movies', recipe: '/recipes', game: '/games', book: '/books',
+  playlist: '/music', activity: '/activities', drink: '/drinks',
+}
 
 const SERIF  = '"Italiana", "Cormorant Garamond", Georgia, serif'
 const BLUE   = '#4169E1'   // royal blue
@@ -83,8 +89,10 @@ const TYPE_EMOJI = {
 }
 
 export default function Collections() {
-  const { user, favorites } = useAuth()
-  const [tab, setTab]       = useState('featured')
+  const { user, favorites }       = useAuth()
+  const navigate                  = useNavigate()
+  const [tab, setTab]             = useState('featured')
+  const [activeCollection, setActiveCollection] = useState(null)
 
   const userFavorites   = Object.values(favorites)
   const favoritesByType = userFavorites.reduce((acc, item) => {
@@ -300,7 +308,7 @@ export default function Collections() {
                       viewport={{ once: true, amount: 0.15 }}
                       transition={{ duration: 0.55, delay: (i % 3) * 0.1 }}
                       style={{ gridColumn: span.col, gridRow: span.row }}>
-                      <BentoCard collection={col} aspect={span.aspect} />
+                      <BentoCard collection={col} aspect={span.aspect} onClick={() => setActiveCollection(col)} />
                     </motion.div>
                   )
                 })}
@@ -347,11 +355,21 @@ export default function Collections() {
           )}
         </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {activeCollection && (
+          <CollectionDetailModal
+            collection={activeCollection}
+            onClose={() => setActiveCollection(null)}
+            onNavigate={(path) => { setActiveCollection(null); navigate(path) }}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
 
-function BentoCard({ collection, aspect }) {
+function BentoCard({ collection, aspect, onClick }) {
   const [hov, setHov] = useState(false)
   const cardRef = useRef(null)
   const handleMouseMove = useCallback((e) => {
@@ -367,7 +385,7 @@ function BentoCard({ collection, aspect }) {
   }, [])
 
   return (
-    <div ref={cardRef} onMouseEnter={() => setHov(true)} onMouseMove={handleMouseMove} onMouseLeave={handleLeave}
+    <div ref={cardRef} onClick={onClick} onMouseEnter={() => setHov(true)} onMouseMove={handleMouseMove} onMouseLeave={handleLeave}
       style={{
         borderRadius: 20, overflow: 'hidden', height: '100%', cursor: 'pointer',
         border: `1px solid rgba(65,105,225,${hov ? 0.22 : 0.08})`,
@@ -448,5 +466,72 @@ function FavoriteCard({ item }) {
         </div>
       </div>
     </div>
+  )
+}
+
+function CollectionDetailModal({ collection, onClose, onNavigate }) {
+  return (
+    <>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }} onClick={onClose}
+        style={{ position: 'fixed', inset: 0, zIndex: 400, background: 'rgba(4,8,20,0.72)', backdropFilter: 'blur(10px)' }} />
+
+      <motion.div
+        initial={{ opacity: 0, y: 24, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 16, scale: 0.97 }}
+        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+        style={{
+          position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+          zIndex: 401, width: 560, maxWidth: 'calc(100vw - 40px)', maxHeight: '82vh', overflowY: 'auto',
+          borderRadius: 24, background: BG, border: `1px solid rgba(65,105,225,0.22)`,
+          boxShadow: '0 40px 100px rgba(0,0,0,0.6)',
+        }}>
+
+        <div style={{ position: 'relative', height: 200 }}>
+          <img src={collection.image} alt={collection.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${BG} 0%, rgba(7,16,42,0.4) 55%, transparent 100%)` }} />
+          <button onClick={onClose}
+            style={{ position: 'absolute', top: 16, right: 16, width: 34, height: 34, borderRadius: 10, border: 'none', cursor: 'pointer', background: 'rgba(4,8,20,0.6)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: CREAM }}>
+            <X size={16} />
+          </button>
+          <div style={{ position: 'absolute', bottom: 18, left: 24, right: 24 }}>
+            <span style={{ fontSize: 30 }}>{collection.emoji}</span>
+            <h2 style={{ fontFamily: SERIF, fontSize: 30, color: CREAM, marginTop: 6, letterSpacing: '-0.01em' }}>{collection.title}</h2>
+          </div>
+        </div>
+
+        <div style={{ padding: '20px 24px 28px' }}>
+          <p style={{ color: '#8090C4', fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>{collection.description}</p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 24 }}>
+            {collection.tags.map(t => (
+              <span key={t} style={{ fontSize: 11, padding: '6px 12px', borderRadius: 100, background: 'rgba(65,105,225,0.1)', color: BLUE, border: '1px solid rgba(65,105,225,0.2)', fontFamily: '"Inter",sans-serif', fontWeight: 600, letterSpacing: '0.05em' }}>
+                {t.toUpperCase()}
+              </span>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {collection.items.map(item => {
+              const path = TYPE_PATH[item.type]
+              return (
+                <button key={item.title} onClick={() => path && onNavigate(path)} disabled={!path}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 12, padding: '12px 14px', borderRadius: 12,
+                    background: 'rgba(65,105,225,0.06)', border: '1px solid rgba(65,105,225,0.14)',
+                    cursor: path ? 'pointer' : 'default', textAlign: 'left', width: '100%',
+                    fontFamily: '"Inter",sans-serif',
+                  }}>
+                  <span style={{ fontSize: 20 }}>{item.emoji}</span>
+                  <span style={{ flex: 1, color: CREAM, fontSize: 14 }}>{item.title}</span>
+                  {path && <ArrowUpRight size={15} color={BLUE} />}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      </motion.div>
+    </>
   )
 }

@@ -16,10 +16,52 @@ const RECS = {
     drama:       ['The Shawshank Redemption', 'Whiplash', 'Marriage Story', 'Boyhood', 'Good Will Hunting'],
     anime:       ['Spirited Away', 'Your Name', 'Demon Slayer – Mugen Train', 'Fullmetal Alchemist: Brotherhood', 'Akira'],
     documentary: ['Free Solo', "Won't You Be My Neighbor?", 'The Social Dilemma', 'Icarus', 'Making a Murderer'],
-    tamil:       ['Vikram', 'Ponniyin Selvan I & II', '96', 'Kaithi', 'Master', 'Soorarai Pottru', 'Asuran'],
-    hindi:       ['3 Idiots', 'Dangal', 'Zindagi Na Milegi Dobara', 'Gully Boy', 'Dil Chahta Hai', 'Taare Zameen Par'],
-    korean:      ['Parasite', 'Oldboy', 'Train to Busan', 'Decision to Leave', 'Burning', 'The Handmaiden'],
-    japanese:    ['Spirited Away', 'Battle Royale', 'Shoplifters', 'Rurouni Kenshin', 'Confessions'],
+    tamil: [
+      { title: 'Vikram',                             genre: ['action', 'thriller'] },
+      { title: 'Ponniyin Selvan I & II',              genre: ['drama'] },
+      { title: '96',                                  genre: ['romance', 'drama'] },
+      { title: 'Kaithi',                              genre: ['action', 'thriller'] },
+      { title: 'Master',                              genre: ['action', 'thriller'] },
+      { title: 'Soorarai Pottru',                     genre: ['drama'] },
+      { title: 'Asuran',                              genre: ['action', 'drama'] },
+      { title: 'Pisaasu',                             genre: ['horror'] },
+      { title: 'Demonte Colony',                      genre: ['horror'] },
+      { title: 'Aranmanai',                           genre: ['horror', 'comedy'] },
+      { title: 'Kanchana',                            genre: ['horror', 'comedy'] },
+      { title: 'Ratsasan',                             genre: ['thriller', 'horror'] },
+      { title: 'Naduvula Konjam Pakkatha Kaanom',     genre: ['comedy'] },
+    ],
+    hindi: [
+      { title: '3 Idiots',                    genre: ['comedy', 'drama'] },
+      { title: 'Dangal',                       genre: ['drama'] },
+      { title: 'Zindagi Na Milegi Dobara',     genre: ['comedy', 'drama'] },
+      { title: 'Gully Boy',                    genre: ['drama'] },
+      { title: 'Dil Chahta Hai',               genre: ['comedy', 'drama'] },
+      { title: 'Taare Zameen Par',             genre: ['drama'] },
+      { title: 'Stree',                        genre: ['horror', 'comedy'] },
+      { title: 'Bhool Bhulaiyaa',              genre: ['horror', 'comedy'] },
+      { title: 'Tumbbad',                       genre: ['horror'] },
+      { title: 'Pari',                          genre: ['horror'] },
+    ],
+    korean: [
+      { title: 'Parasite',              genre: ['thriller', 'drama'] },
+      { title: 'Oldboy',                 genre: ['thriller', 'action'] },
+      { title: 'Train to Busan',        genre: ['horror', 'action'] },
+      { title: 'Decision to Leave',     genre: ['thriller', 'romance'] },
+      { title: 'Burning',                genre: ['thriller', 'drama'] },
+      { title: 'The Handmaiden',        genre: ['thriller', 'romance'] },
+      { title: 'The Wailing',            genre: ['horror'] },
+      { title: 'A Tale of Two Sisters', genre: ['horror'] },
+    ],
+    japanese: [
+      { title: 'Spirited Away',    genre: ['fantasy', 'anime'] },
+      { title: 'Battle Royale',    genre: ['thriller', 'action'] },
+      { title: 'Shoplifters',       genre: ['drama'] },
+      { title: 'Rurouni Kenshin',  genre: ['action'] },
+      { title: 'Confessions',       genre: ['thriller', 'drama'] },
+      { title: 'Ju-On: The Grudge', genre: ['horror'] },
+      { title: 'Ringu',              genre: ['horror'] },
+    ],
     chill:       ['Julie & Julia', 'The Secret Life of Walter Mitty', 'Amélie', 'Chef', 'Midnight in Paris'],
     sad:         ['Good Will Hunting', 'Her', 'Eternal Sunshine', 'Manchester by the Sea', 'The Pursuit of Happyness'],
     happy:       ['Knives Out', 'The Princess Bride', 'About Time', 'Paddington 2', 'Yes Man'],
@@ -281,7 +323,20 @@ const MUSIC_SUB = ['focus', 'workout', 'party', 'chill', 'sad', 'romantic', 'mor
 const ACT_SUB   = ['outdoor', 'indoor', 'solo', 'social', 'creative', 'chill', 'bored']
 const MOOD_TAGS = ['sad', 'happy', 'bored', 'chill', 'romantic', 'hungry', 'morning', 'night', 'weekend']
 
-function pick(category, tag, n = 5) { return RECS[category]?.[tag]?.slice(0, n) ?? [] }
+function pick(category, tag, n = 5) {
+  const list = RECS[category]?.[tag]
+  if (!list) return []
+  return list.slice(0, n).map(item => typeof item === 'string' ? item : item.title)
+}
+
+function pickByGenre(category, tag, genre, n = 5) {
+  const list = RECS[category]?.[tag]
+  if (!list) return []
+  return list
+    .filter(item => typeof item === 'object' && item.genre?.includes(genre))
+    .slice(0, n)
+    .map(item => item.title)
+}
 
 function buildResponse(tags) {
   const t = new Set(tags)
@@ -306,9 +361,17 @@ function buildResponse(tags) {
   // ── MOVIES ──────────────────────────────────────────────────
   if (medium === 'movie' || (!medium && (genre || lang))) {
     const path = '/movies'
-    if (lang && genre) return {
-      text: `${lang.charAt(0).toUpperCase() + lang.slice(1)} ${genre} — great combo. Starting with the best ${lang} picks:`,
-      recs: pick('movie', lang), actions: [{ label: 'Browse Movies →', path }],
+    if (lang && genre) {
+      const langLabel = lang.charAt(0).toUpperCase() + lang.slice(1)
+      const genreMatches = pickByGenre('movie', lang, genre)
+      if (genreMatches.length) return {
+        text: `${langLabel} ${genre} — great combo. Here are the best picks:`,
+        recs: genreMatches, actions: [{ label: 'Browse Movies →', path }],
+      }
+      return {
+        text: `I don't have ${langLabel}-specific ${genre} picks yet, but here's the best of ${langLabel} cinema:`,
+        recs: pick('movie', lang), actions: [{ label: 'Browse Movies →', path }],
+      }
     }
     if (lang)   return { text: MOVIE_INTROS[lang],   recs: pick('movie', lang),  actions: [{ label: 'Browse Movies →', path }] }
     if (genre)  return { text: MOVIE_INTROS[genre] ?? `Here are some ${genre} films:`, recs: pick('movie', genre), actions: [{ label: 'Browse Movies →', path }] }
