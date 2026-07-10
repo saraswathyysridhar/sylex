@@ -1,16 +1,48 @@
-import smtplib
+import json
 import threading
 import os
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+import urllib.request
+import urllib.error
 
-SMTP_HOST  = os.getenv('SMTP_HOST',  'smtp.gmail.com')
-SMTP_PORT  = int(os.getenv('SMTP_PORT', '587'))
-SMTP_USER  = os.getenv('SMTP_USER',  '')
-SMTP_PASS  = os.getenv('SMTP_PASS',  '')
+# Render's free tier blocks outbound SMTP (port 587), so email is sent via
+# Brevo's HTTPS transactional API instead of smtplib — see brevo.com.
+BREVO_API_KEY = os.getenv('BREVO_API_KEY', '')
+BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email'
+
 FROM_NAME  = os.getenv('FROM_NAME',  'Sylex')
-FROM_EMAIL = os.getenv('FROM_EMAIL', SMTP_USER)
+FROM_EMAIL = os.getenv('FROM_EMAIL', 'sylexwebadmin@gmail.com')
 APP_URL    = os.getenv('APP_URL',    'http://localhost:5173')
+
+
+def _send_via_brevo(to_email: str, subject: str, html: str, plain: str, label: str = 'Email') -> None:
+    """Blocking send — always called from a background thread."""
+    if not BREVO_API_KEY:
+        print(f'[email] BREVO_API_KEY not configured — skipping {label.lower()} to {to_email}')
+        return
+
+    payload = json.dumps({
+        'sender': {'name': FROM_NAME, 'email': FROM_EMAIL},
+        'to': [{'email': to_email}],
+        'subject': subject,
+        'htmlContent': html,
+        'textContent': plain,
+    }).encode('utf-8')
+
+    req = urllib.request.Request(BREVO_API_URL, data=payload, method='POST', headers={
+        'api-key': BREVO_API_KEY,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    })
+
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            resp.read()
+        print(f'[email] {label} sent -> {to_email}')
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode('utf-8', errors='replace')
+        print(f'[email] {label} failed for {to_email}: {exc.code} {body}')
+    except Exception as exc:
+        print(f'[email] {label} failed for {to_email}: {exc}')
 
 
 def _build_welcome_html(name: str) -> str:
@@ -145,17 +177,7 @@ def _build_welcome_html(name: str) -> str:
 
 
 def _send(name: str, to_email: str) -> None:
-    """Blocking send — always called from a background thread."""
-    if not SMTP_USER or not SMTP_PASS:
-        print(f'[email] SMTP not configured — skipping welcome email to {to_email}')
-        return
-
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = f'Welcome to Sylex, {name} ✨'
-    msg['From']    = f'{FROM_NAME} <{FROM_EMAIL}>'
-    msg['To']      = to_email
-
-    # Plain-text fallback
+    subject = f'Welcome to Sylex, {name} ✨'
     plain = (
         f"Hey {name},\n\n"
         "Welcome to Sylex — your mood-first discovery platform.\n\n"
@@ -165,19 +187,7 @@ def _send(name: str, to_email: str) -> None:
         "(Don't see this next time? Check your Spam or Promotions folder and mark us as \"Not spam\".)\n\n"
         "— The Sylex Team"
     )
-    msg.attach(MIMEText(plain, 'plain'))
-    msg.attach(MIMEText(_build_welcome_html(name), 'html'))
-
-    try:
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
-            server.ehlo()
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.send_message(msg, from_addr=FROM_EMAIL, to_addrs=to_email)
-        print(f'[email] Welcome email sent -> {to_email}')
-    except Exception as exc:
-        # Log but never crash the signup flow
-        print(f'[email] Failed to send to {to_email}: {exc}')
+    _send_via_brevo(to_email, subject, _build_welcome_html(name), plain, label='Welcome email')
 
 
 def send_welcome_email(name: str, email: str) -> None:
@@ -188,14 +198,9 @@ def send_welcome_email(name: str, email: str) -> None:
 
 # ── Admin notification ────────────────────────────────────────────────────────
 
-ADMIN_EMAIL = os.getenv('FROM_EMAIL') or SMTP_USER  # same inbox as the sender
+ADMIN_EMAIL = os.getenv('FROM_EMAIL') or FROM_EMAIL  # same inbox as the sender
 
 def _send_admin(new_name: str, new_email: str, count: int) -> None:
-    """Blocking send — always called from a background thread."""
-    if not SMTP_USER or not SMTP_PASS or not ADMIN_EMAIL:
-        print(f'[email] SMTP not configured — skipping admin notification')
-        return
-
     subject = f'🎉 New Sylex signup #{count} — {new_name}'
 
     html = f"""<!DOCTYPE html>
@@ -249,23 +254,7 @@ def _send_admin(new_name: str, new_email: str, count: int) -> None:
 
     plain = f"New Sylex signup #{count}\n\nName: {new_name}\nEmail: {new_email}\nTotal members: {count}"
 
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = subject
-    msg['From']    = f'{FROM_NAME} <{FROM_EMAIL}>'
-    msg['To']      = ADMIN_EMAIL
-
-    msg.attach(MIMEText(plain, 'plain'))
-    msg.attach(MIMEText(html, 'html'))
-
-    try:
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
-            server.ehlo()
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.send_message(msg, from_addr=FROM_EMAIL, to_addrs=ADMIN_EMAIL)
-        print(f'[email] Admin notification sent -> {ADMIN_EMAIL} (member #{count})')
-    except Exception as exc:
-        print(f'[email] Admin notification failed: {exc}')
+    _send_via_brevo(ADMIN_EMAIL, subject, html, plain, label='Admin notification')
 
 
 def send_admin_notification(new_name: str, new_email: str, count: int) -> None:
@@ -279,11 +268,6 @@ def send_admin_notification(new_name: str, new_email: str, count: int) -> None:
 VISIT_DIGEST_EMAIL = 'sylexwebadmin@gmail.com'
 
 def _send_visitor_digest(count: int, days: int) -> None:
-    """Blocking send — always called from a background thread."""
-    if not SMTP_USER or not SMTP_PASS:
-        print(f'[email] SMTP not configured — skipping visitor digest')
-        return
-
     subject = f'📈 Sylex traffic digest — {count} visitor{"s" if count != 1 else ""} in the last {days} days'
 
     html = f"""<!DOCTYPE html>
@@ -323,23 +307,7 @@ def _send_visitor_digest(count: int, days: int) -> None:
 
     plain = f"Sylex traffic digest\n\n{count} unique visitor(s) over the last {days} days."
 
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = subject
-    msg['From']    = f'{FROM_NAME} <{FROM_EMAIL}>'
-    msg['To']      = VISIT_DIGEST_EMAIL
-
-    msg.attach(MIMEText(plain, 'plain'))
-    msg.attach(MIMEText(html, 'html'))
-
-    try:
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
-            server.ehlo()
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.send_message(msg, from_addr=FROM_EMAIL, to_addrs=VISIT_DIGEST_EMAIL)
-        print(f'[email] Visitor digest sent -> {VISIT_DIGEST_EMAIL} ({count} visitors)')
-    except Exception as exc:
-        print(f'[email] Visitor digest failed: {exc}')
+    _send_via_brevo(VISIT_DIGEST_EMAIL, subject, html, plain, label='Visitor digest')
 
 
 def send_visitor_digest(count: int, days: int = 7) -> None:
