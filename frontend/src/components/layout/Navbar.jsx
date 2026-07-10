@@ -53,22 +53,21 @@ export default function Navbar() {
           boxShadow: scrolled ? '0 1px 32px rgba(28,26,24,0.08)' : 'none',
         }}
       >
-        <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
-          <div className="flex items-center justify-between h-[108px]">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex items-center justify-between h-16 sm:h-[108px]">
 
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group shrink-0">
-              <div style={{
-                width: '56px', height: '56px', borderRadius: '15px',
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+              <div className="w-10 h-10 sm:w-14 sm:h-14" style={{
+                borderRadius: '15px',
                 background: `linear-gradient(135deg, ${activeAccent}20, ${activeAccent}08)`,
                 border: `1.5px solid ${activeAccent}40`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.35s ease',
                 boxShadow: `0 2px 14px ${activeAccent}25`,
               }}>
-                <span style={{
+                <span className="text-lg sm:text-[26px]" style={{
                   fontFamily: CINZEL,
-                  fontSize: '26px',
                   fontWeight: 700,
                   color: activeAccent,
                   lineHeight: 1,
@@ -76,9 +75,8 @@ export default function Navbar() {
                 }}>S</span>
               </div>
               <div>
-                <div style={{
+                <div className="text-lg sm:text-4xl" style={{
                   fontFamily: CINZEL,
-                  fontSize: '36px',
                   fontWeight: 700,
                   letterSpacing: '0.18em',
                   color: '#1C1A18',
@@ -87,7 +85,7 @@ export default function Navbar() {
                 }}>
                   SYLEX
                 </div>
-                <div style={{
+                <div className="hidden sm:block" style={{
                   fontSize: '9.5px',
                   letterSpacing: '0.30em',
                   color: '#B0A898',
@@ -163,9 +161,9 @@ export default function Navbar() {
             </nav>
 
             {/* Right side */}
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
               <button onClick={() => setSearch(true)}
-                className="p-2.5 rounded-xl text-ink-muted hover:text-ink hover:bg-ink/5 transition-all"
+                className="p-2 sm:p-2.5 rounded-xl text-ink-muted hover:text-ink hover:bg-ink/5 transition-all"
                 aria-label="Search">
                 <Search className="w-[17px] h-[17px]" />
               </button>
@@ -222,7 +220,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <button onClick={() => setAuth(true)}
-                  className="px-5 py-2 rounded-full text-[12.5px] font-semibold text-white transition-all"
+                  className="px-3 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12.5px] font-semibold text-white transition-all"
                   style={{
                     background: `linear-gradient(135deg, ${activeAccent}, ${activeAccent}CC)`,
                     boxShadow: `0 4px 16px ${activeAccent}40`,
@@ -234,7 +232,7 @@ export default function Navbar() {
               )}
 
               <button onClick={() => setMobile(v => !v)}
-                className="xl:hidden p-2.5 rounded-xl text-ink-muted hover:text-ink hover:bg-ink/5 transition-all">
+                className="xl:hidden p-2 sm:p-2.5 rounded-xl text-ink-muted hover:text-ink hover:bg-ink/5 transition-all">
                 {mobile ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
