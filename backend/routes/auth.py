@@ -70,7 +70,18 @@ def login():
     if not user:
         return jsonify({'error': 'No account exists with this email'}), 404
 
-    if not bcrypt.checkpw(password.encode('utf-8'), user['password']):
+    password_hash = user.get('password')
+    if isinstance(password_hash, str):
+        password_hash = password_hash.encode('utf-8')
+    elif hasattr(password_hash, 'encode') and not isinstance(password_hash, (bytes, bytearray)):
+        password_hash = str(password_hash).encode('utf-8')
+
+    try:
+        is_valid_password = bcrypt.checkpw(password.encode('utf-8'), password_hash)
+    except Exception:
+        return jsonify({'error': 'Incorrect password'}), 401
+
+    if not is_valid_password:
         return jsonify({'error': 'Incorrect password'}), 401
 
     user_id = str(user['_id'])
