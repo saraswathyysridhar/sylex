@@ -6,7 +6,7 @@ import urllib.error
 
 # Render's free tier blocks outbound SMTP (port 587), so email is sent via
 # Brevo's HTTPS transactional API instead of smtplib — see brevo.com.
-BREVO_API_KEY = os.getenv('BREVO_API_KEY', '')
+BREVO_API_KEY = os.getenv('BREVO_API_KEY') or os.getenv('RESEND_API_KEY', '')
 BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email'
 
 FROM_NAME  = os.getenv('FROM_NAME',  'Sylex')

@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'sylex-secret-key-change-in-production')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or os.getenv('JWT_SECRET_KEY') or 'sylex-secret-key-change-in-production'
 
 CORS(app, resources={r'/api/*': {'origins': '*'}})
 

@@ -101,9 +101,14 @@ VITE_GOOGLE_BOOKS_API_KEY=your_google_books_api_key
 
 ```env
 MONGO_URI=your_mongodb_connection_string
+SECRET_KEY=your_secret_key
+# optional alias for SECRET_KEY
 JWT_SECRET_KEY=your_secret_key
-RESEND_API_KEY=your_resend_api_key
-EMAIL_FROM=your_verified_email
+BREVO_API_KEY=your_brevo_api_key
+# optional alias for BREVO_API_KEY
+RESEND_API_KEY=your_brevo_api_key
+FROM_EMAIL=your_verified_email
+APP_URL=https://your-app-url
 ```
 
 ---
