@@ -1,7 +1,7 @@
 import threading
 import time
-from email_service import send_visitor_digest
-from db import visitors_collection
+from backend.email_service import send_visitor_digest
+from backend.db import visitors_collection
 
 DIGEST_INTERVAL_SECONDS = 7 * 24 * 60 * 60  # 7 days
 DIGEST_INTERVAL_DAYS = 7

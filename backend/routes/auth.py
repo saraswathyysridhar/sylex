@@ -3,8 +3,8 @@ import bcrypt
 import jwt
 import datetime
 import re
-from email_service import send_welcome_email, send_admin_notification
-from db import users_collection
+from backend.email_service import send_welcome_email, send_admin_notification
+from backend.db import users_collection
 
 auth_bp = Blueprint('auth', __name__)
 

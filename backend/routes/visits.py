@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from visit_tracker import record_visit
+from backend.visit_tracker import record_visit
 
 visits_bp = Blueprint('visits', __name__)
 

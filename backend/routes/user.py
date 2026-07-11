@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, current_app
 import jwt
-from db import users_collection
+from backend.db import users_collection
 
 user_bp = Blueprint('user', __name__)
 
