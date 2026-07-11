@@ -34,18 +34,26 @@ def signup():
     if len(password) < 6 or len(password) > 8:
         return jsonify({'error': 'Password must be 6-8 characters'}), 400
 
-    if users_collection.find_one({'email': email}):
-        return jsonify({'error': 'An account with this email already exists'}), 409
+    try:
+        if users_collection.find_one({'email': email}):
+            return jsonify({'error': 'An account with this email already exists'}), 409
+    except Exception as exc:
+        current_app.logger.error('Signup DB query failed', exc_info=exc)
+        return jsonify({'error': 'Database unavailable'}), 503
 
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-    result = users_collection.insert_one({
-        'name': name,
-        'email': email,
-        'password': hashed,
-        'created_at': datetime.datetime.utcnow().isoformat(),
-        'favorites': {},
-    })
+    try:
+        result = users_collection.insert_one({
+            'name': name,
+            'email': email,
+            'password': hashed,
+            'created_at': datetime.datetime.utcnow().isoformat(),
+            'favorites': {},
+        })
+    except Exception as exc:
+        current_app.logger.error('Signup DB insert failed', exc_info=exc)
+        return jsonify({'error': 'Database unavailable'}), 503
     user_id = str(result.inserted_id)
     member_count = users_collection.count_documents({})
 
@@ -66,7 +74,12 @@ def login():
     if not email or not password:
         return jsonify({'error': 'Email and password are required'}), 400
 
-    user = users_collection.find_one({'email': email})
+    try:
+        user = users_collection.find_one({'email': email})
+    except Exception as exc:
+        current_app.logger.error('Login DB query failed', exc_info=exc)
+        return jsonify({'error': 'Database unavailable'}), 503
+
     if not user:
         return jsonify({'error': 'No account exists with this email'}), 404
 
