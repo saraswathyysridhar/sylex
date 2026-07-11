@@ -1,9 +1,15 @@
 from flask import Flask, jsonify, current_app
 from flask_cors import CORS
-from backend.routes.auth import auth_bp
-from backend.routes.user import user_bp
-from backend.routes.visits import visits_bp
-from backend.visit_tracker import start_visit_tracker
+try:
+    from backend.routes.auth import auth_bp
+    from backend.routes.user import user_bp
+    from backend.routes.visits import visits_bp
+    from backend.visit_tracker import start_visit_tracker
+except ImportError:
+    from routes.auth import auth_bp
+    from routes.user import user_bp
+    from routes.visits import visits_bp
+    from visit_tracker import start_visit_tracker
 from werkzeug.exceptions import HTTPException
 import os
 from dotenv import load_dotenv

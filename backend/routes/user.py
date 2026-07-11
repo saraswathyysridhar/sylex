@@ -1,6 +1,9 @@
 from flask import Blueprint, request, jsonify, current_app
 import jwt
-from backend.db import users_collection
+try:
+    from backend.db import users_collection
+except ImportError:
+    from db import users_collection
 
 user_bp = Blueprint('user', __name__)
 
