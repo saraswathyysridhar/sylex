@@ -20,10 +20,10 @@ def create_token(user_id, email):
 
 @auth_bp.route('/signup', methods=['POST'])
 def signup():
-    data = request.get_json()
-    name = data.get('name', '').strip()
-    email = data.get('email', '').strip().lower()
-    password = data.get('password', '')
+    data = request.get_json(silent=True) or {}
+    name = (data.get('name') or '').strip()
+    email = (data.get('email') or '').strip().lower()
+    password = data.get('password') or ''
 
     if not name or not email or not password:
         return jsonify({'error': 'All fields are required'}), 400
@@ -59,9 +59,9 @@ def signup():
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
-    data = request.get_json()
-    email = data.get('email', '').strip().lower()
-    password = data.get('password', '')
+    data = request.get_json(silent=True) or {}
+    email = (data.get('email') or '').strip().lower()
+    password = data.get('password') or ''
 
     if not email or not password:
         return jsonify({'error': 'Email and password are required'}), 400

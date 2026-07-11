@@ -1,9 +1,10 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, current_app
 from flask_cors import CORS
 from routes.auth import auth_bp
 from routes.user import user_bp
 from routes.visits import visits_bp
 from visit_tracker import start_visit_tracker
+from werkzeug.exceptions import HTTPException
 import os
 from dotenv import load_dotenv
 
@@ -21,6 +22,15 @@ app.register_blueprint(visits_bp, url_prefix='/api/visits')
 @app.route('/api/health')
 def health():
     return jsonify({'status': 'ok', 'message': 'Sylex API running'})
+
+@app.errorhandler(HTTPException)
+def handle_http_exception(error):
+    return jsonify({'error': error.description}), error.code
+
+@app.errorhandler(Exception)
+def handle_unexpected_error(error):
+    current_app.logger.error('Unhandled exception', exc_info=error)
+    return jsonify({'error': 'Internal server error'}), 500
 
 # Starts on import, so it runs both under `python app.py` and under gunicorn
 # (which imports this module directly and never hits the __main__ block below).
