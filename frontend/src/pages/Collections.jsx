@@ -476,19 +476,21 @@ function CollectionDetailModal({ collection, onClose, onNavigate }) {
         transition={{ duration: 0.2 }} onClick={onClose}
         style={{ position: 'fixed', inset: 0, zIndex: 400, background: 'rgba(4,8,20,0.72)', backdropFilter: 'blur(10px)' }} />
 
-      <motion.div
-        initial={{ opacity: 0, y: 24, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 16, scale: 0.97 }}
-        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-        style={{
-          position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-          zIndex: 401, width: 560, maxWidth: 'calc(100vw - 40px)', maxHeight: '82vh', overflowY: 'auto',
-          borderRadius: 24, background: BG, border: `1px solid rgba(65,105,225,0.22)`,
-          boxShadow: '0 40px 100px rgba(0,0,0,0.6)',
-        }}>
+      <div onClick={onClose}
+        style={{ position: 'fixed', inset: 0, zIndex: 401, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 16, scale: 0.97 }}
+          transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+          onClick={e => e.stopPropagation()}
+          style={{
+            width: 560, maxWidth: '100%', maxHeight: '82vh', overflowY: 'auto',
+            borderRadius: 24, background: BG, border: `1px solid rgba(65,105,225,0.22)`,
+            boxShadow: '0 40px 100px rgba(0,0,0,0.6)',
+          }}>
 
-        <div style={{ position: 'relative', height: 200 }}>
+          <div style={{ position: 'relative', height: 200 }}>
           <img src={collection.image} alt={collection.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${BG} 0%, rgba(7,16,42,0.4) 55%, transparent 100%)` }} />
           <button onClick={onClose}
@@ -531,7 +533,8 @@ function CollectionDetailModal({ collection, onClose, onNavigate }) {
             })}
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </>
   )
 }

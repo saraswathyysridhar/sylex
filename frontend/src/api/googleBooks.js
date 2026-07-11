@@ -3,6 +3,17 @@ import axios from 'axios'
 const BASE = 'https://www.googleapis.com/books/v1'
 const API_KEY = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY || ''
 
+// Google Books frequently omits `description` — fall back to subtitle, then
+// a synthesized one-liner, so every book always has a summary to show.
+function summarize(info) {
+  if (info.description) return info.description.slice(0, 400)
+  if (info.subtitle) return info.subtitle
+  const author = info.authors?.join(', ')
+  const genre  = info.categories?.[0]
+  const bits = [genre ? `A ${genre.toLowerCase()} title` : 'A title', author ? `by ${author}` : null].filter(Boolean)
+  return `${bits.join(' ')}. No official synopsis is available for this book yet.`
+}
+
 const formatBook = (b) => {
   if (!b || !b.id) return null
   const info = b.volumeInfo || {}
@@ -21,7 +32,7 @@ const formatBook = (b) => {
     poster:      cover ? cover.replace('http:', 'https:').replace('&edge=curl', '') : null,
     image:       cover ? cover.replace('http:', 'https:').replace('&edge=curl', '') : null,
     cover:       cover ? cover.replace('http:', 'https:').replace('&edge=curl', '') : null,
-    description: info.description ? info.description.slice(0, 400) : '',
+    description: summarize(info),
     publisher:   info.publisher || '',
     year:        info.publishedDate?.split('-')[0] || '',
     genres:      info.categories || [],

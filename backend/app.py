@@ -11,7 +11,6 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'sylex-secret-key-change-in-production')
-app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost:27017/sylex')
 
 CORS(app, resources={r'/api/*': {'origins': '*'}})
 

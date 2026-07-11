@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, current_app
 import jwt
-from routes.auth import users_store
+from db import users_collection
 
 user_bp = Blueprint('user', __name__)
 
@@ -11,7 +11,7 @@ def get_current_user():
     token = auth_header.split(' ')[1]
     try:
         payload = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])
-        return users_store.get(payload.get('email'))
+        return users_collection.find_one({'email': payload.get('email')})
     except jwt.InvalidTokenError:
         return None
 
@@ -45,7 +45,7 @@ def toggle_favorite():
         favs[key] = {**item, 'type': item_type}
         action = 'added'
 
-    user['favorites'] = favs
+    users_collection.update_one({'_id': user['_id']}, {'$set': {'favorites': favs}})
     return jsonify({'action': action, 'favorites': favs})
 
 @user_bp.route('/profile', methods=['GET'])
@@ -54,7 +54,7 @@ def get_profile():
     if not user:
         return jsonify({'error': 'Unauthorized'}), 401
     return jsonify({
-        'id': user['id'],
+        'id': str(user['_id']),
         'name': user['name'],
         'email': user['email'],
         'created_at': user.get('created_at'),

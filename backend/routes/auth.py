@@ -2,14 +2,11 @@ from flask import Blueprint, request, jsonify, current_app
 import bcrypt
 import jwt
 import datetime
-import os
 import re
 from email_service import send_welcome_email, send_admin_notification
+from db import users_collection
 
 auth_bp = Blueprint('auth', __name__)
-
-# In-memory store for demo (replace with MongoDB in production)
-users_store = {}
 
 EMAIL_RE = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
 
@@ -37,23 +34,23 @@ def signup():
     if len(password) < 6 or len(password) > 8:
         return jsonify({'error': 'Password must be 6-8 characters'}), 400
 
-    if email in users_store:
+    if users_collection.find_one({'email': email}):
         return jsonify({'error': 'An account with this email already exists'}), 409
 
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-    user_id = str(len(users_store) + 1)
 
-    users_store[email] = {
-        'id': user_id,
+    result = users_collection.insert_one({
         'name': name,
         'email': email,
         'password': hashed,
         'created_at': datetime.datetime.utcnow().isoformat(),
         'favorites': {},
-    }
+    })
+    user_id = str(result.inserted_id)
+    member_count = users_collection.count_documents({})
 
-    send_welcome_email(name, email)                          # welcome email to new user
-    send_admin_notification(name, email, len(users_store))  # alert to admin inbox
+    send_welcome_email(name, email)                           # welcome email to new user
+    send_admin_notification(name, email, member_count)        # alert to admin inbox
 
     token = create_token(user_id, email)
     user = {'id': user_id, 'name': name, 'email': email}
@@ -69,15 +66,16 @@ def login():
     if not email or not password:
         return jsonify({'error': 'Email and password are required'}), 400
 
-    user = users_store.get(email)
+    user = users_collection.find_one({'email': email})
     if not user:
         return jsonify({'error': 'No account exists with this email'}), 404
 
     if not bcrypt.checkpw(password.encode('utf-8'), user['password']):
         return jsonify({'error': 'Incorrect password'}), 401
 
-    token = create_token(user['id'], email)
-    user_data = {'id': user['id'], 'name': user['name'], 'email': user['email']}
+    user_id = str(user['_id'])
+    token = create_token(user_id, email)
+    user_data = {'id': user_id, 'name': user['name'], 'email': user['email']}
 
     return jsonify({'user': user_data, 'token': token}), 200
 
@@ -91,10 +89,10 @@ def verify():
     try:
         payload = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])
         email = payload.get('email')
-        user = users_store.get(email)
+        user = users_collection.find_one({'email': email})
         if not user:
             return jsonify({'error': 'User not found'}), 404
-        return jsonify({'user': {'id': user['id'], 'name': user['name'], 'email': user['email']}})
+        return jsonify({'user': {'id': str(user['_id']), 'name': user['name'], 'email': user['email']}})
     except jwt.ExpiredSignatureError:
         return jsonify({'error': 'Token expired'}), 401
     except jwt.InvalidTokenError:
