@@ -17,6 +17,14 @@ import { useAuth } from '../context/AuthContext'
 
 const ACCENT = '#5A9FBF'
 
+// No feature film runs under 15 minutes, so that option from the shared
+// time picker doesn't apply here — only offer realistic movie-length picks.
+const MOVIE_TIME_OPTIONS = [
+  { label: '1 hour', value: '1h',  icon: '🎬', hint: 'An hour' },
+  { label: '2+ hrs',  value: '2h',  icon: '🌙', hint: 'Long session' },
+  { label: 'All in',  value: 'all', icon: '✨', hint: 'All evening' },
+]
+
 const MOOD_INTENSITY_GENRES = {
   lighthearted: [35, 10751, 16, 10749],
   feelgood:     [10749, 18, 35],
@@ -283,6 +291,7 @@ export default function Movies() {
             showSearch
             showMoodSlider
             showTimePicker
+            timeOptions={MOVIE_TIME_OPTIONS}
           />
         </div>
 

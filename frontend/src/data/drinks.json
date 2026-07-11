@@ -24,7 +24,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Iced_Matcha_Latte_from_McCafe.jpg/500px-Iced_Matcha_Latte_from_McCafe.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Iced_Matcha_Latte_from_McCafe.jpg/500px-Iced_Matcha_Latte_from_McCafe.jpg"
   },
   {
     "id": "d2",
@@ -50,7 +52,9 @@
     ],
     "difficulty": "Medium",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Espresso_Martini_on_a_bar.jpg/500px-Espresso_Martini_on_a_bar.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Espresso_Martini_on_a_bar.jpg/500px-Espresso_Martini_on_a_bar.jpg"
   },
   {
     "id": "d3",
@@ -77,7 +81,9 @@
     ],
     "difficulty": "Easy",
     "time": "8 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Golden_turmeric_latte_-_Hello_My_Moon_2024-04-07.jpg/500px-Golden_turmeric_latte_-_Hello_My_Moon_2024-04-07.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Golden_turmeric_latte_-_Hello_My_Moon_2024-04-07.jpg/500px-Golden_turmeric_latte_-_Hello_My_Moon_2024-04-07.jpg"
   },
   {
     "id": "d4",
@@ -104,7 +110,9 @@
     ],
     "difficulty": "Easy",
     "time": "10 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2024-12-16_15_09_43_A_glass_of_strawberry_lemonade_at_the_Applebee%27s_along_U.S._Route_1_%28Brunswick_Pike%29_in_Lawrence_Township%2C_Mercer_County%2C_New_Jersey.jpg/500px-2024-12-16_15_09_43_A_glass_of_strawberry_lemonade_at_the_Applebee%27s_along_U.S._Route_1_%28Brunswick_Pike%29_in_Lawrence_Township%2C_Mercer_County%2C_New_Jersey.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2024-12-16_15_09_43_A_glass_of_strawberry_lemonade_at_the_Applebee%27s_along_U.S._Route_1_%28Brunswick_Pike%29_in_Lawrence_Township%2C_Mercer_County%2C_New_Jersey.jpg/500px-2024-12-16_15_09_43_A_glass_of_strawberry_lemonade_at_the_Applebee%27s_along_U.S._Route_1_%28Brunswick_Pike%29_in_Lawrence_Township%2C_Mercer_County%2C_New_Jersey.jpg"
   },
   {
     "id": "d5",
@@ -131,7 +139,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Dark_%27N%27_Stormy.jpg/500px-Dark_%27N%27_Stormy.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Dark_%27N%27_Stormy.jpg/500px-Dark_%27N%27_Stormy.jpg"
   },
   {
     "id": "d6",
@@ -187,7 +197,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mango_Lassi_.jpg/500px-Mango_Lassi_.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mango_Lassi_.jpg/500px-Mango_Lassi_.jpg"
   },
   {
     "id": "d8",
@@ -214,7 +226,9 @@
     ],
     "difficulty": "Easy",
     "time": "10 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Blue_Butterfly_Pea_Tea.jpg/500px-Blue_Butterfly_Pea_Tea.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Blue_Butterfly_Pea_Tea.jpg/500px-Blue_Butterfly_Pea_Tea.jpg"
   },
   {
     "id": "d9",
@@ -240,7 +254,9 @@
     ],
     "difficulty": "Easy",
     "time": "8 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cup_of_Hot_Chocolate.jpg/500px-Cup_of_Hot_Chocolate.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cup_of_Hot_Chocolate.jpg/500px-Cup_of_Hot_Chocolate.jpg"
   },
   {
     "id": "d10",
@@ -267,7 +283,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Watermelon_Mojito_-_Pune%2C_Maharashtra%2C009.jpg/500px-Watermelon_Mojito_-_Pune%2C_Maharashtra%2C009.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Watermelon_Mojito_-_Pune%2C_Maharashtra%2C009.jpg/500px-Watermelon_Mojito_-_Pune%2C_Maharashtra%2C009.jpg"
   },
   {
     "id": "d11",
@@ -292,7 +310,9 @@
     ],
     "difficulty": "Easy",
     "time": "3 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Affogato.JPG/500px-Affogato.JPG",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Affogato.JPG/500px-Affogato.JPG"
   },
   {
     "id": "d12",
@@ -320,7 +340,9 @@
     ],
     "difficulty": "Easy",
     "time": "15 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Peach_iced_tea_with_orange_slices.jpg/500px-Peach_iced_tea_with_orange_slices.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Peach_iced_tea_with_orange_slices.jpg/500px-Peach_iced_tea_with_orange_slices.jpg"
   },
   {
     "id": "d13",
@@ -346,7 +368,9 @@
     ],
     "difficulty": "Easy",
     "time": "3 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Kir_Royal.jpg/500px-Kir_Royal.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Kir_Royal.jpg/500px-Kir_Royal.jpg"
   },
   {
     "id": "d14",
@@ -374,7 +398,9 @@
     ],
     "difficulty": "Medium",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/French_75.jpg/500px-French_75.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/French_75.jpg/500px-French_75.jpg"
   },
   {
     "id": "d15",
@@ -429,7 +455,9 @@
     ],
     "difficulty": "Easy",
     "time": "3 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Citron_press%C3%A9.jpg/500px-Citron_press%C3%A9.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Citron_press%C3%A9.jpg/500px-Citron_press%C3%A9.jpg"
   },
   {
     "id": "d17",
@@ -460,7 +488,9 @@
     ],
     "difficulty": "Medium",
     "time": "20 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Thandai_%28Spiced_Indian_Milk_Drink%29.JPG/500px-Thandai_%28Spiced_Indian_Milk_Drink%29.JPG",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Thandai_%28Spiced_Indian_Milk_Drink%29.JPG/500px-Thandai_%28Spiced_Indian_Milk_Drink%29.JPG"
   },
   {
     "id": "d18",
@@ -491,7 +521,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Jal_Jeera.JPG/500px-Jal_Jeera.JPG",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Jal_Jeera.JPG/500px-Jal_Jeera.JPG"
   },
   {
     "id": "d19",
@@ -520,7 +552,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Rooh_Afza_%28Sharbat%29.JPG/500px-Rooh_Afza_%28Sharbat%29.JPG",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Rooh_Afza_%28Sharbat%29.JPG/500px-Rooh_Afza_%28Sharbat%29.JPG"
   },
   {
     "id": "d20",
@@ -547,7 +581,9 @@
     ],
     "difficulty": "Medium",
     "time": "15 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Indian_filter_coffee_in_Dabarah.jpg/500px-Indian_filter_coffee_in_Dabarah.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Indian_filter_coffee_in_Dabarah.jpg/500px-Indian_filter_coffee_in_Dabarah.jpg"
   },
   {
     "id": "d21",
@@ -578,7 +614,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Masala_chaas.JPG/500px-Masala_chaas.JPG",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Masala_chaas.JPG/500px-Masala_chaas.JPG"
   },
   {
     "id": "d22",
@@ -609,7 +647,9 @@
     ],
     "difficulty": "Easy",
     "time": "3 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nimbu_pani.JPG/500px-Nimbu_pani.JPG",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nimbu_pani.JPG/500px-Nimbu_pani.JPG"
   },
   {
     "id": "d23",
@@ -638,7 +678,9 @@
     ],
     "difficulty": "Medium",
     "time": "30 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sago_Gulaman.jpg/500px-Sago_Gulaman.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sago_Gulaman.jpg/500px-Sago_Gulaman.jpg"
   },
   {
     "id": "d24",
@@ -666,7 +708,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Calamansi_juice_%28Filipino_lemonade%29.jpg/500px-Calamansi_juice_%28Filipino_lemonade%29.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Calamansi_juice_%28Filipino_lemonade%29.jpg/500px-Calamansi_juice_%28Filipino_lemonade%29.jpg"
   },
   {
     "id": "d25",
@@ -695,7 +739,9 @@
     ],
     "difficulty": "Easy",
     "time": "8 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Buko_Pandan_Jelly%2C_Mar_2026.jpg/500px-Buko_Pandan_Jelly%2C_Mar_2026.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Buko_Pandan_Jelly%2C_Mar_2026.jpg/500px-Buko_Pandan_Jelly%2C_Mar_2026.jpg"
   },
   {
     "id": "d26",
@@ -725,7 +771,9 @@
     ],
     "difficulty": "Easy",
     "time": "7 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Frisch_aufgebr%C3%BChter_Rooibos.jpg/500px-Frisch_aufgebr%C3%BChter_Rooibos.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Frisch_aufgebr%C3%BChter_Rooibos.jpg/500px-Frisch_aufgebr%C3%BChter_Rooibos.jpg"
   },
   {
     "id": "d27",
@@ -784,7 +832,9 @@
     ],
     "difficulty": "Easy",
     "time": "5 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/A%C3%A7ai.jpg/500px-A%C3%A7ai.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/A%C3%A7ai.jpg/500px-A%C3%A7ai.jpg"
   },
   {
     "id": "d29",
@@ -812,7 +862,9 @@
     ],
     "difficulty": "Easy",
     "time": "6 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Coconut_Milk_Matcha_Latte.jpg/500px-Coconut_Milk_Matcha_Latte.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Coconut_Milk_Matcha_Latte.jpg/500px-Coconut_Milk_Matcha_Latte.jpg"
   },
   {
     "id": "d30",
@@ -843,7 +895,9 @@
     ],
     "difficulty": "Easy",
     "time": "10 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Chai_latte_-_Cafe_Coho%2C_Queens_Road%2C_Brighton_2024-03-06.jpg/500px-Chai_latte_-_Cafe_Coho%2C_Queens_Road%2C_Brighton_2024-03-06.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Chai_latte_-_Cafe_Coho%2C_Queens_Road%2C_Brighton_2024-03-06.jpg/500px-Chai_latte_-_Cafe_Coho%2C_Queens_Road%2C_Brighton_2024-03-06.jpg"
   },
   {
     "id": "d31",
@@ -903,7 +957,9 @@
     ],
     "difficulty": "Easy",
     "time": "3 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Aperol_Spritz_2014a.jpg/500px-Aperol_Spritz_2014a.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Aperol_Spritz_2014a.jpg/500px-Aperol_Spritz_2014a.jpg"
   },
   {
     "id": "d33",
@@ -934,7 +990,9 @@
     ],
     "difficulty": "Easy",
     "time": "15 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Zobo_drink_%28hibiscus_juice%29_01.png/500px-Zobo_drink_%28hibiscus_juice%29_01.png",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Zobo_drink_%28hibiscus_juice%29_01.png/500px-Zobo_drink_%28hibiscus_juice%29_01.png"
   },
   {
     "id": "d34",
@@ -963,6 +1021,8 @@
     ],
     "difficulty": "Easy",
     "time": "3 min",
-    "type": "drink"
+    "type": "drink",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Kombucha%2C_Synergy_Organic_bottles.jpg/500px-Kombucha%2C_Synergy_Organic_bottles.jpg",
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Kombucha%2C_Synergy_Organic_bottles.jpg/500px-Kombucha%2C_Synergy_Organic_bottles.jpg"
   }
 ]

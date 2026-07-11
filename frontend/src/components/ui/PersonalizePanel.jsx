@@ -36,6 +36,7 @@ export default function PersonalizePanel({
   searchPlaceholder = "e.g. 'dark psychological thriller' or 'feel-good romance'",
   showMoodSlider = false,
   showTimePicker = false,
+  timeOptions = TIME_OPTIONS,
 }) {
   const [sel, setSel] = useState({})
   const [applied, setApplied] = useState(false)
@@ -275,7 +276,7 @@ export default function PersonalizePanel({
                     How much time do you have?
                   </p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                    {TIME_OPTIONS.map((opt, oi) => {
+                    {timeOptions.map((opt, oi) => {
                       const on = timeBudget === opt.value
                       return (
                         <motion.button key={opt.value}

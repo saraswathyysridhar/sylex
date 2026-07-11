@@ -62,6 +62,21 @@ const RECS = {
       { title: 'Ju-On: The Grudge', genre: ['horror'] },
       { title: 'Ringu',              genre: ['horror'] },
     ],
+    telugu: [
+      { title: 'Baahubali: The Beginning', genre: ['action', 'fantasy'] },
+      { title: 'RRR',                       genre: ['action', 'drama'] },
+      { title: 'Pushpa: The Rise',          genre: ['action', 'thriller'] },
+      { title: 'Arjun Reddy',               genre: ['romance', 'drama'] },
+      { title: 'Eega',                       genre: ['fantasy', 'action'] },
+    ],
+    malayalam: [
+      { title: 'Drishyam',                   genre: ['thriller'] },
+      { title: 'Premam',                      genre: ['romance', 'comedy'] },
+      { title: 'Kumbalangi Nights',          genre: ['drama'] },
+      { title: 'The Great Indian Kitchen',   genre: ['drama'] },
+      { title: 'Bangalore Days',              genre: ['comedy', 'drama'] },
+      { title: 'Maheshinte Prathikaram',     genre: ['comedy', 'drama'] },
+    ],
     chill:       ['Julie & Julia', 'The Secret Life of Walter Mitty', 'Amélie', 'Chef', 'Midnight in Paris'],
     sad:         ['Good Will Hunting', 'Her', 'Eternal Sunshine', 'Manchester by the Sea', 'The Pursuit of Happyness'],
     happy:       ['Knives Out', 'The Princess Bride', 'About Time', 'Paddington 2', 'Yes Man'],
@@ -92,6 +107,16 @@ const RECS = {
     chill:       ['Tomato Soup + Grilled Cheese', 'Mac & Cheese', 'Khichdi', 'Ramen', 'Vegetable Soup'],
     breakfast:   ['Pancake Stack', 'Eggs Benedict', 'Avocado Toast', 'French Toast', 'Shakshuka'],
     asian:       ['Pad Thai', 'Ramen', 'Bibimbap', 'Chicken Tikka Masala', 'Miso Soup + Rice'],
+    french:      ['Coq au Vin', 'Ratatouille', 'Beef Bourguignon', 'Quiche Lorraine', 'Crème Brûlée'],
+    mexican:     ['Tacos al Pastor', 'Guacamole', 'Enchiladas', 'Chiles Rellenos', 'Elote'],
+    mediterranean: ['Greek Salad', 'Hummus', 'Falafel', 'Moussaka', 'Tabbouleh'],
+    filipino:    ['Chicken Adobo', 'Pancit', 'Lumpia', 'Sinigang', 'Halo-Halo'],
+    british:     ['Fish and Chips', "Shepherd's Pie", 'Sunday Roast', 'Bangers and Mash', 'Sticky Toffee Pudding'],
+    american:    ['Classic Cheeseburger', 'BBQ Ribs', 'Mac and Cheese', 'Buffalo Wings', 'Apple Pie'],
+    south_indian: ['Masala Dosa', 'Idli Sambar', 'Medu Vada', 'Uttapam', 'Rasam', 'Pongal'],
+    north_indian: ['Butter Chicken', 'Dal Makhani', 'Tandoori Chicken', 'Chole Bhature', 'Aloo Paratha'],
+    albanian:    ['Tavë Kosi', 'Byrek', 'Fërgesë', 'Flija'],
+    south_african: ['Bobotie', 'Bunny Chow', 'Chakalaka', 'Malva Pudding'],
   },
   book: {
     scifi:    ['Dune – Frank Herbert', 'Project Hail Mary – Andy Weir', 'Foundation – Isaac Asimov', 'The Martian – Andy Weir', "Ender's Game – Orson Scott Card"],
@@ -110,6 +135,7 @@ const RECS = {
     chill:     ['Hot Chocolate', 'Chamomile Tea', 'Warm Apple Cider', 'Golden Milk', 'Masala Chai'],
     morning:   ['Dalgona Coffee', 'Matcha Latte', 'Green Smoothie', 'Fresh Orange Juice', 'Bulletproof Coffee'],
     party:     ['Aperol Spritz', 'Mojito', 'Piña Colada', 'Paloma', 'Cosmopolitan'],
+    wellness:  ['Golden Turmeric Latte', 'Thandai', 'Chaas (Spiced Buttermilk)', 'Ginger Kombucha Fizz'],
   },
   music: {
     focus:    ['Lo-fi Hip Hop', 'Classical Study', 'Ambient Focus', 'Jazz Café', 'Piano Concentration'],
@@ -122,6 +148,7 @@ const RECS = {
     night:    ['Late Night Jazz', 'Dark R&B', 'Midnight Indie', 'Night Drive Playlist', 'Ambient Night'],
     hindi:    ['Bollywood Classics', 'Arijit Singh Essentials', 'Retro Bollywood', 'New Bollywood Hits', 'Sufi Hits'],
     tamil:    ['Tamil Kuthu', 'Ilaiyaraaja Classics', 'A.R. Rahman Best', 'Kollywood Beats', 'Tamil Melody Hits'],
+    telugu:   ['Telugu Hits 2025', 'Telugu Melody', 'Tollywood Beats', 'S.S. Thaman Best', 'Telugu Folk Hits'],
   },
   activity: {
     outdoor:  ['Sunrise hike', 'Cycling trail ride', 'Picnic in the park', 'Outdoor yoga', 'Beach day'],
@@ -175,6 +202,8 @@ function detectTags(text) {
   if (/\b(indian)\b/.test(t) && !tags.has('recipe'))                         tags.add('hindi')
   if (/\b(korean|k.?drama|kdrama)\b/.test(t))                               tags.add('korean')
   if (/\b(japanese|j.?drama)\b/.test(t))                                     tags.add('japanese')
+  if (/\b(telugu|tollywood)\b/.test(t))                                      tags.add('telugu')
+  if (/\b(malayalam|mollywood)\b/.test(t))                                   tags.add('malayalam')
 
   // Food specifics
   if (/\b(indian|curry|spicy|masala|desi)\b/.test(t) && tags.has('recipe'))  tags.add('indian')
@@ -184,6 +213,25 @@ function detectTags(text) {
   if (/\b(dessert|sweet|cake|chocolate)\b/.test(t))                           tags.add('dessert')
   if (/\b(asian|chinese|thai)\b/.test(t) && tags.has('recipe'))              tags.add('asian')
   if (/\b(breakfast|brunch)\b/.test(t))                                       tags.add('breakfast')
+  if (/\b(french|coq au vin|ratatouille|croissant)\b/.test(t))               tags.add('french')
+  if (/\b(mexican|taco|burrito|guacamole|enchilada)\b/.test(t))              tags.add('mexican')
+  if (/\b(mediterranean|greek|hummus|falafel|tabbouleh)\b/.test(t))          tags.add('mediterranean')
+  if (/\b(filipino|adobo|pancit|lumpia|sinigang)\b/.test(t))                 tags.add('filipino')
+  if (/\b(british|fish and chips|shepherd.?s pie|bangers)\b/.test(t))       tags.add('british')
+  if (/\b(american|cheeseburger|bbq ribs|buffalo wings)\b/.test(t))          tags.add('american')
+  if (/\b(albanian|tav[ëe] kosi|byrek|f[ëe]rges[ëe])\b/.test(t))            tags.add('albanian')
+  if (/\b(south african|bobotie|bunny chow|chakalaka)\b/.test(t))            tags.add('south_african')
+
+  // Specific dish names — recognized on their own, without needing a generic
+  // trigger word like "cook" or "eat" first.
+  if (/\b(dosa|idli|sambar|medu vada|uttapam|rasam|pongal|upma|bisi bele|chettinad|payasam)\b/.test(t)) {
+    tags.add('recipe'); tags.add('south_indian')
+  }
+  if (/\b(butter chicken|dal makhani|tandoori|chole bhature|aloo paratha|baingan bharta|palak paneer|chana masala|rogan josh|matar paneer|naan|biryani)\b/.test(t)) {
+    tags.add('recipe'); tags.add('indian')
+  }
+  // Ingredients / preparations that imply a specific drink even without the word "drink"
+  if (/\b(turmeric|golden latte|golden milk)\b/.test(t)) { tags.add('drink'); tags.add('wellness') }
 
   // Drink subtypes
   if (/\b(cocktail|cocktails|alcohol|spirits|beer|wine)\b/.test(t))          tags.add('cocktail')
@@ -239,6 +287,8 @@ const MOVIE_INTROS = {
   hindi:       "Hindi/Bollywood films that are genuinely great 🎬",
   korean:      "Korean cinema — some of the best filmmaking alive 🎬",
   japanese:    "Japanese films with stunning storytelling 🎬",
+  telugu:      "Telugu/Tollywood films that go all out 🎬",
+  malayalam:   "Malayalam cinema — some of India's best storytelling 🎬",
 }
 
 const GAME_INTROS = {
@@ -267,6 +317,16 @@ const RECIPE_INTROS = {
   chill:      "Comfort food for when you need a warm hug 🫂",
   breakfast:  "Breakfast recipes to start the day right ☀️",
   asian:      "Asian recipes packed with flavour 🥢",
+  french:     "French recipes that feel like a bistro at home 🥖",
+  mexican:    "Mexican recipes bursting with flavour 🌮",
+  mediterranean: "Mediterranean dishes, fresh and vibrant 🫒",
+  filipino:   "Filipino recipes worth discovering 🍚",
+  british:    "British classics, comforting and hearty 🥧",
+  american:   "American classics done right 🍔",
+  south_indian: "South Indian dishes — dosa to rasam 🥥",
+  north_indian: "North Indian classics, rich and comforting 🍛",
+  albanian:   "Albanian dishes, hearty and homestyle 🥘",
+  south_african: "South African dishes packed with character 🍖",
 }
 
 const BOOK_INTROS = {
@@ -287,6 +347,7 @@ const DRINK_INTROS = {
   chill:     "Warm, cozy drinks for unwinding 🫖",
   morning:   "Morning drinks to start the day right ☀️",
   party:     "Crowd-pleasing drinks for a great night 🎉",
+  wellness:  "Wellness drinks that actually make you feel good 🌿",
 }
 
 const MUSIC_INTROS = {
@@ -300,6 +361,7 @@ const MUSIC_INTROS = {
   night:    "Late night vibes — moody and atmospheric 🌙",
   hindi:    "Best Bollywood and Hindi music picks 🎵",
   tamil:    "Best Tamil music — kuthu to melody 🎵",
+  telugu:   "Best Telugu/Tollywood music picks 🎵",
 }
 
 const ACTIVITY_INTROS = {
@@ -316,10 +378,10 @@ const ACTIVITY_INTROS = {
 const MEDIUMS   = ['movie', 'game', 'book', 'recipe', 'drink', 'music', 'activity']
 const GENRES    = ['scifi', 'romance', 'horror', 'thriller', 'comedy', 'action', 'fantasy', 'drama', 'anime', 'documentary']
 const GAME_TAGS = ['rpg', 'indie', 'shooter', 'strategy', 'multiplayer', 'action', 'chill', 'horror', 'scifi', 'fantasy', 'romance', 'sports', 'puzzle']
-const LANG_TAGS = ['tamil', 'hindi', 'korean', 'japanese']
-const FOOD_TAGS = ['indian', 'italian', 'quick', 'vegetarian', 'dessert', 'asian', 'breakfast']
-const DRINK_SUB = ['cocktail', 'mocktail', 'coffee', 'tea', 'smoothie']
-const MUSIC_SUB = ['focus', 'workout', 'party', 'chill', 'sad', 'romantic', 'morning', 'night', 'hindi', 'tamil']
+const LANG_TAGS = ['tamil', 'hindi', 'korean', 'japanese', 'telugu', 'malayalam']
+const FOOD_TAGS = ['indian', 'italian', 'quick', 'vegetarian', 'dessert', 'asian', 'breakfast', 'french', 'mexican', 'mediterranean', 'filipino', 'british', 'american', 'south_indian', 'north_indian', 'albanian', 'south_african']
+const DRINK_SUB = ['cocktail', 'mocktail', 'coffee', 'tea', 'smoothie', 'wellness']
+const MUSIC_SUB = ['focus', 'workout', 'party', 'chill', 'sad', 'romantic', 'morning', 'night', 'hindi', 'tamil', 'telugu']
 const ACT_SUB   = ['outdoor', 'indoor', 'solo', 'social', 'creative', 'chill', 'bored']
 const MOOD_TAGS = ['sad', 'happy', 'bored', 'chill', 'romantic', 'hungry', 'morning', 'night', 'weekend']
 
@@ -379,7 +441,7 @@ function buildResponse(tags) {
       text: { sad: "Something warm for a tough day 💛", happy: "Films to match your energy 🎉", chill: "Slow-burn films for a relaxed evening 🌙", romantic: "Romance films for a special night 🌹" }[mood] ?? "Here's what I'd watch:",
       recs: pick('movie', mood), actions: [{ label: 'Browse Movies →', path }],
     }
-    return { text: "What genre? Sci-fi, romance, horror, thriller, comedy, fantasy, anime... or a language like Tamil, Hindi, Korean? 🎬", recs: [], actions: [{ label: 'Browse Movies →', path }] }
+    return { text: "What genre? Sci-fi, romance, horror, thriller, comedy, fantasy, anime... or a language like Tamil, Telugu, Malayalam, Hindi, Korean? 🎬", recs: [], actions: [{ label: 'Browse Movies →', path }] }
   }
 
   // ── GAMES ──────────────────────────────────────────────────
@@ -395,7 +457,7 @@ function buildResponse(tags) {
     const path = '/recipes'
     const tag = foodTag || (mood === 'romantic' ? 'romantic' : mood === 'chill' ? 'chill' : t.has('morning') ? 'breakfast' : null)
     if (tag && RECS.recipe[tag]) return { text: RECIPE_INTROS[tag] ?? `Here are some ${tag} recipes:`, recs: pick('recipe', tag), actions: [{ label: 'See Recipes →', path }] }
-    return { text: "What are you feeling? Indian, Italian, quick & easy, vegetarian, dessert, Asian, breakfast? 🍽️", recs: [], actions: [{ label: 'See Recipes →', path }] }
+    return { text: "What are you feeling? Indian, South Indian, Italian, French, Mexican, Mediterranean, quick & easy, vegetarian, dessert? 🍽️", recs: [], actions: [{ label: 'See Recipes →', path }] }
   }
 
   // ── BOOKS ──────────────────────────────────────────────────
@@ -413,7 +475,7 @@ function buildResponse(tags) {
     const moodDrink = mood === 'romantic' ? 'romantic' : mood === 'chill' ? 'chill' : t.has('morning') ? 'morning' : t.has('party') ? 'party' : null
     const tag = drinkType || moodDrink
     if (tag && RECS.drink[tag]) return { text: DRINK_INTROS[tag], recs: pick('drink', tag), actions: [{ label: 'Browse Drinks →', path }] }
-    return { text: "What's the vibe? Cocktail, mocktail, coffee, tea, smoothie — or a mood like chill, morning, party, romantic ☕🍸", recs: [], actions: [{ label: 'Browse Drinks →', path }] }
+    return { text: "What's the vibe? Cocktail, mocktail, coffee, tea, smoothie, wellness — or a mood like chill, morning, party, romantic ☕🍸", recs: [], actions: [{ label: 'Browse Drinks →', path }] }
   }
 
   // ── MUSIC ──────────────────────────────────────────────────
